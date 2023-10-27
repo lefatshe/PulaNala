@@ -114,17 +114,17 @@ export class CoursesService {
 
     }
 
-    findLessons(courseId:string, sortOrder: OrderByDirection = 'asc', pageNumber = 0, pageSize = 3):
-    Observable<Lesson[]> {
+    findLessons(courseId: string, sortOrder: OrderByDirection = 'asc', pageNumber = 0, pageSize = 3):
+        Observable<Lesson[]> {
         return this.db.collection(`courses/${courseId}/lessons`,
-        ref => ref.orderBy('seqNo', sortOrder)
-            .limit(pageSize)
-            .startAfter(pageNumber * pageSize)
+            ref => ref.orderBy('seqNo', sortOrder)
+                .limit(pageSize)
+                .startAfter(pageNumber * pageSize)
         )
-        .get()
-        .pipe(
-            map(results => convertSnaps<Lesson>(results))
-        )
+            .get()
+            .pipe(
+                map(results => convertSnaps<Lesson>(results))
+            )
     }
 
 }
