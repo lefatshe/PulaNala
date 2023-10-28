@@ -31,11 +31,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { VideoBackgroundComponent } from './shared/video-background/video-background.component';
+import { BookingTileComponent } from './shared/booking-tile/booking-tile.component';
+import { BlockReservationComponent } from './shared/block-reservation/block-reservation.component';
+import { BlockScheduleComponent } from './shared/block-schedule/block-schedule.component';
+import { BookButtonComponent } from './shared/book-button/book-button.component';
+import { WelcomeStoryComponent } from './shared/welcome-story/welcome-story.component';
+import { SocialMediaBlockComponent } from './shared/social-media-block/social-media-block.component';
+import { CarouselCellsComponent } from './shared/carousel-cells/carousel-cells.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent,
+    VideoBackgroundComponent,
+    BookingTileComponent,
+    BlockReservationComponent,
+    BlockScheduleComponent,
+    BookButtonComponent,
+    WelcomeStoryComponent,
+    SocialMediaBlockComponent,
+    CarouselCellsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

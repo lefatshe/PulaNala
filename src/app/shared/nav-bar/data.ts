@@ -1,0 +1,6 @@
+const SocialMediaLinks = [
+    {
+        id: '',
+        link: ''
+    }
+]
