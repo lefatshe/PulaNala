@@ -1,0 +1,78 @@
+<header>
+    <nav class="navbar">
+        <div class="container-fluid">
+
+            <ul id="menu-toggle" class="nav navbar-nav">
+                <li *ngIf="isLoggedIn" [routerLink]="activeMenuUrl" (click)="updateActiveState(activeMenuTab)">
+                    <a>{{activeMenuTab}}</a>
+                </li>
+                <li>
+                    <img [src]="pictureUrl" class="user-avatar" width="32">
+                </li>
+                <hr />
+                <li class="position-relative">
+                    <a href="javascript: void(0)">
+                        <small>{{displayName}}</small>
+                    </a>
+                    <ul class="langs">
+                        <li *ngIf="isLoggedOut">
+                            <button (click)="logout()" type="button" class="btn btn-primary d-block">
+                                LogOut user
+                                <!-- <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                  <span class="visually-hidden">New alerts</span>
+                                </span> -->
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="nav navbar-nav logo">
+                <li>
+                    <a href="">
+                        <img height="auto" widthx="220" class="lazy" data-src="../../../assets/logo/logo-web-gold.svg"
+                            src="" alt="Pula Nala Lodge" title="Pula Nala Lodge">
+                    </a>
+                </li>
+            </ul>
+
+            <ul id="menu-toggle" class="nav navbar-nav">
+
+                <li class="burger-icon">
+                    <p>Menu</p>
+                </li>
+                <li class="burger-icon-span"><span></span><span></span><span></span></li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+
+
+<div class="c-menu__col-left"></div>
+<div class="c-menu__col-right"></div>
+<nav class="site-nav__menu">
+    <div class="site-nav__menu-inner text-center">
+        <!--<div class="close"><img src="img/icons/icon-close.svg"></div>-->
+        <div class="site-nav__main _lazy" data-bg="../../../assets/logo/bg-menu.svg">
+            <div class="display-table">
+                <div class="display-table-cell">
+
+                    <ul id="menu-toggle" class="list-unstyled site-nav__main_bottom">
+                        <li class="block-legal">
+                            <a *ngIf="isLoggedOut" (click)="logout()" class="burger-icon">LogOut</a>
+                            <hr>
+                            <a *ngIf="isLoggedIn" routerLink="login" class="burger-icon">LogIn</a>
+                            <hr>
+                            <a *ngIf="isLoggedIn" routerLink="login">Register</a>
+                            <hr>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

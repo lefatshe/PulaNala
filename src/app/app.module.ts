@@ -26,21 +26,32 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
-import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
-import { VideoBackgroundComponent } from './shared/video-background/video-background.component';
-import { BookingTileComponent } from './shared/booking-tile/booking-tile.component';
-import { BlockReservationComponent } from './shared/block-reservation/block-reservation.component';
-import { BlockScheduleComponent } from './shared/block-schedule/block-schedule.component';
-import { BookButtonComponent } from './shared/book-button/book-button.component';
-import { WelcomeStoryComponent } from './shared/welcome-story/welcome-story.component';
-import { SocialMediaBlockComponent } from './shared/social-media-block/social-media-block.component';
-import { CarouselCellsComponent } from './shared/carousel-cells/carousel-cells.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
+import { VideoBackgroundComponent } from './shared/components/video-background/video-background.component';
+import { BookingTileComponent } from './shared/components/booking-tile/booking-tile.component';
+import { BlockReservationComponent } from './shared/components/block-reservation/block-reservation.component';
+import { BlockScheduleComponent } from './shared/components/block-schedule/block-schedule.component';
+import { BookButtonComponent } from './shared/components/book-button/book-button.component';
+import { WelcomeStoryComponent } from './shared/components/welcome-story/welcome-story.component';
+import { SocialMediaBlockComponent } from './shared/components/social-media-block/social-media-block.component';
+import { CarouselCellsComponent } from './shared/components/carousel-cells/carousel-cells.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+
+import { UserService } from './services/user.service';
+import { BookingComponent } from './booking/booking.component';
+import { CreateComponent } from './booking/components/create/create.component';
+import { AdminToolBarComponent } from './shared/components/admin-tool-bar/admin-tool-bar.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { AddRoomComponent } from './rooms/components/add/add.component';
+import { EditComponent } from './rooms/components/edit/edit.component';
+import { ViewComponent } from './rooms/components/view/view.component';
+import { ManageButtonComponent } from './shared/components/manage-button/manage-button.component';
+import { HomeComponent } from './features/home/home.component';
+import { LoginComponent } from './features/login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +66,18 @@ import { FooterComponent } from './shared/footer/footer.component';
     WelcomeStoryComponent,
     SocialMediaBlockComponent,
     CarouselCellsComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    BookingComponent,
+    CreateComponent,
+    AdminToolBarComponent,
+
+    // Rooms
+    RoomsComponent,
+    AddRoomComponent,
+    EditComponent,
+    ViewComponent,
+    ManageButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -89,8 +111,9 @@ import { FooterComponent } from './shared/footer/footer.component';
     AngularFireFunctionsModule
   ],
   providers: [
+    UserService,
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },
-    { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8080] : undefined },
+    { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8181] : undefined },
     { provide: USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulators ? ['localhost', 5001] : undefined }
   ],
   bootstrap: [AppComponent]

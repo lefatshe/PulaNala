@@ -197,4 +197,4 @@ function initMap() {
     infowindow.open(d, a);
 }
 
-initMap()
+// initMap()

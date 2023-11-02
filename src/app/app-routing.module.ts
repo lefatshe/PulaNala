@@ -1,37 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { AddRoomComponent } from './rooms/components/add/add.component';
+import { ViewComponent } from './rooms/components/view/view.component';
+import { HomeComponent } from './features/home/home.component';
+import { LoginComponent } from './features/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   },
-  // {
-  //   path: 'create-course',
-  //   component: CreateCourseComponent
+  {
+    path: 'home',
+    component: HomeComponent
+  },
 
-  // },
-  // {
-  //   path: 'create-user',
-  //   component: CreateUserComponent
-
-  // },
-  // {
-  //   path: 'about',
-  //   component: AboutComponent
-  // },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent
-  // },
-  // {
-  //   path: 'courses/:courseUrl',
-  //   component: CourseComponent,
-  //   resolve: {
-  //     course: CourseResolver
-  //   }
-  // },
+  {
+    path: 'add-room',
+    component: AddRoomComponent
+  },
+  {
+    path: 'view-room',
+    component: ViewComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '**',
     redirectTo: '/'
@@ -39,7 +34,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled'
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

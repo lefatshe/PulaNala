@@ -1,0 +1,24 @@
+<section class="d-hero lazy" data-bg="">
+    <app-video-background></app-video-background>
+</section>
+
+<section class="d-content-search">
+    <app-booking-tile></app-booking-tile>
+</section>
+
+<section class="d-content-text-img bg-grey">
+    <app-welcome-story></app-welcome-story>
+</section>
+
+<section class="d-slider-gastronomy">
+    <div class="text-right">
+        <app-admin-tool-bar 
+            [sectionContentType]="'app-carousel-cells'" 
+            [canAdd]="true" 
+            [canView]="true" 
+            [canDelete]="true"
+            [canEdit]="true">
+        </app-admin-tool-bar>
+    </div>
+<app-carousel-cells></app-carousel-cells>
+</section>

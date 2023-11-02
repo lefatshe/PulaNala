@@ -1,6 +1,6 @@
 :root {
-    --color-gold: #9A8D7A;
-    --color-blue: #3494D1;
+    --color-gold: #1a66d2;
+    --color-blue: #1a66d2;
     --color-dark-blue: #1D4588;
     --color-lazy-grey: #595959;
 
@@ -263,6 +263,7 @@ footer .d-block-right .position-relative.open .langs {
     display: flex;
     list-style: none;
     left: 50%;
+    min-width: 220px;
     transform: translate(-50%, -50%);
     padding: 8px;
     background-color: rgba(255, 255, 255, .95);
@@ -658,7 +659,7 @@ footer .d-block-right .position-relative .langs {
 }
 
 .site-nav__main .menu-expand a {
-    color: var(--color-lazy-grey)
+    color: var(--color-lazy-gold)
 }
 
 .site-nav__main .menu-expand .menu-expand-item a {

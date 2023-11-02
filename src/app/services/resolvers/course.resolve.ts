@@ -10,7 +10,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 })
 export class CourseResolver implements Resolve<Course> {
 
-    constructor(private courseService: CoursesService) { }
+    constructor(private courseService: CoursesService) {}
 
     resolve(
         route: ActivatedRouteSnapshot,
