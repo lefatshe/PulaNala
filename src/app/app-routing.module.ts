@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AddRoomComponent
   },
   {
-    path: 'view-room',
+    path: 'manage-room',
     component: ViewComponent
   },
   {

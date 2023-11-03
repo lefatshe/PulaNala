@@ -12,7 +12,7 @@
                         flavours.</p>
 
                     <a href="" class="underline" title="LEARN MORE">
-                        <span>LEARN MORE</span><svg viewBox="0 0 13 20">
+                        <span>SEE MORE</span><svg viewBox="0 0 13 20">
                             <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                         </svg>
                     </a>
@@ -20,63 +20,71 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 p-0 d-block-slider">
+        <div class="col-12 p-0 d-block-slider" *ngIf="listRooms">
             <div class="carousel-blocks">
+
+                <!-- carousel-cell-0 -->
                 <div class="carousel-cell">
                     <picture>
                         <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
                             type="image/webp" srcset="">
                         <img width="537" height="642"
                             data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
-                            alt="Phoken, North West" title="Phoken, North West" class="lazy img-fluid w-100" src="">
+                            class="lazy img-fluid w-100" src="">
                     </picture>
-                    <p class="counter"><span>1</span>/6</p>
-                    <div class="d-block text-center">
-                        <p class="p-section">room 1</p>
-                        <h2 class="title t-italic">
-                            <a class="">Selemita</a>
-                        </h2>
-                        <!--
-        <h2 class="title"><?/*= $title */?></h2>
-    -->
-                        <div class="p-text">Pula Nala Lodge has a new gastronomic seafood restaurant in partnership
-                            with Rafa Zafra. Honest cuisine, based on the quality of the product, providing a casual and
-                            relaxed touch to a luxurious and elegant setting. The new gastronomic venue of Barcelona.
-                            Opened on Abril 26th</div>
 
-                        <a class="underline">
+                    <p class="counter"><span>{{listRooms[0]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[0]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[0]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[0]?.longDescription}}</div>
+
+                        <!-- <a class="underline">
                             <span>Read more</span><svg viewBox="0 0 13 20" width="13" height="20">
                                 <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                             </svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
+                <!-- carousel-cell-1 -->
                 <div class="carousel-cell">
                     <picture>
-                        <source
-                            data-srcset="../../../assets/slider/View-from-Rooftop-Garden-El-Palace-Barcelona.tmedium.webp"
+                        <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
                             type="image/webp" srcset="">
                         <img width="537" height="642"
-                            data-src="../../../assets/slider/View-from-Rooftop-Garden-El-Palace-Barcelona.tmedium.jpg"
-                            alt="Rooftop Garden" title="Rooftop Garden" class="lazy img-fluid w-100" src="">
+                            data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                            class="lazy img-fluid w-100" src="">
                     </picture>
-                    <p class="counter"><span>2</span>/6</p>
-                    <div class="d-block text-center">
-                        <p class="p-section">room 2</p>
-                        <h2 class="title t-italic">
-                            <a class="">Nthabi</a>
-                        </h2>
-                       
-                        <div class="p-text">If you would like a bird’s-eye view over Barcelona, look no further than the
-                            rooftop garden. From a matchless setting on the flower-covered rooftop of El Palace
-                            Barcelona, you can enjoy a panoramic view of the city all year round, which is gorgeous both
-                            day and night.</div>
 
-                        <a class="underline">
-                            <span>Read more</span><svg viewBox="0 0 13 20" width="13" height="20">
-                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
-                            </svg>
-                        </a>
+                    <p class="counter"><span>{{listRooms[1]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[1]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[1]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[1]?.longDescription}}</div>
                     </div>
                 </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                            type="image/webp" srcset="">
+                        <img width="537" height="642"
+                            data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>

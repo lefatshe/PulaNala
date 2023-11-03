@@ -16,12 +16,8 @@ export class RoomsService {
     }
 
     getAllRooms(category: string): Observable<RoomModal[]> {
-        return this.db.collection(
-            'rooms',
-            ref => ref.where(
-                'categories',
-                'array-contains', category)
-                .orderBy('seqNo')
+        return this.db.collection('rooms',
+            ref => ref.orderBy('seqNo')
         )
             .get()
             .pipe(map(results => convertSnaps<RoomModal>(results)));
@@ -64,6 +60,9 @@ export class RoomsService {
                 })
             );
     }
-
+    
+    deleteRoom(roomId: string) {
+        return from(this.db.doc(`rooms/${roomId}`).delete());
+    }
 
 }

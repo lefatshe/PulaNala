@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-tool-bar',
@@ -31,7 +31,7 @@ export class AdminToolBarComponent implements OnInit {
       case 'app-carousel-cells': {
         this.addPathUrl = '/add-room'
         this.editPathUrl = '/add-room'
-        this.viewPathUrl = '/view-room'
+        this.viewPathUrl = '/manage-room'
         this.deletePathUrl = '/add-room'
         break;
       }

@@ -1,5 +1,5 @@
 export interface RoomModal {
-    id: number;
+    id: string;
     roomNumber: string;
     longDescription: string;
     shortDescription: string;
@@ -7,5 +7,7 @@ export interface RoomModal {
     url: string;
     seqNo: number;
     promo: string;
-    promoStartAt: any
+    promoStartAt: any;
+    category: string;
+    dateCreated: any;
 }

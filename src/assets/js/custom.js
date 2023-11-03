@@ -181,25 +181,7 @@
         });
     });
     
-    $(window).on("load", function (e) {
-        //<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="26341f4c-d033-4398-a1f8-aad705b24709" data-blockingmode="auto" type="text/javascript"></script>
-        var script = document.createElement("script");
-        script.src = "https://consent.cookiebot.com/uc.js";
-        script.type = "text/javascript";
-        script.id = "Cookiebot";
-        script.setAttribute('data-cbid', '26341f4c-d033-4398-a1f8-aad705b24709');
-        script.setAttribute('data-blockingmode', 'auto');
-        //document.getElementsByTagName("head")[0].appendChild(script);
-    });
-    $(window).on("load", function (e) {
-        setTimeout(function(){
-        //<script src='https://www.thehotelsnetwork.com/js/hotel_price_widget.js?hotel_id=1025126&property_id=1012907&account_key=6416182A5BFB3367E9CE01605297F4AC' async></script>
-        var script = document.createElement("script");
-        script.src = "https://www.thehotelsnetwork.com/js/hotel_price_widget.js?hotel_id=1025126&property_id=1012907&account_key=6416182A5BFB3367E9CE01605297F4AC";
-        script.type = "text/javascript";
-        //document.getElementsByTagName("head")[0].appendChild(script);
-        }, 500);
-    });
+   
     
     $(window).on("load", function (e) {
     //$(document).ready(function () {

@@ -10,7 +10,7 @@ import firebase from 'firebase/app';
 import Timestamp = firebase.firestore.Timestamp;
 import { RoomsService } from '../../services/rooms.service';
 import { RoomModal } from '../../models/room.model';
-import { scrollWindowToTop } from '../../../shared/services/scroll-to-top'
+import { Category } from 'src/app/shared/data';
 
 @Component({
     selector: 'add-room',
@@ -22,6 +22,8 @@ export class AddRoomComponent implements OnInit {
     loader: boolean;
     addedItem = null
 
+    categoryOptions = Category
+
 
     form = this.fb.group({
         longDescription: ['', Validators.required],
@@ -31,6 +33,8 @@ export class AddRoomComponent implements OnInit {
         url: [''],
         promo: [false],
         promoStartAt: [null],
+        category: ['', Validators.required],
+        dateCreated: [null],
     });
 
     constructor(
@@ -56,19 +60,21 @@ export class AddRoomComponent implements OnInit {
     onCreate() {
         const val = this.form.value;
         const randomNumber = Math.floor(Math.random() * 10000) + 1
-
+        const nowDate = new Date();
         const newRoom: Partial<RoomModal> = {
+            id: this.roomId,
             longDescription: val.longDescription,
             shortDescription: val.shortDescription,
             roomNumber: randomNumber.toString(),
             title: val.title,
             url: val.title.replace(/\s+/g, '-').toLowerCase(),
             promo: val.promo,
-            promoStartAt: val.promoStartAt
+            promoStartAt: val.promoStartAt,
+            category: val.category,
+            dateCreated: nowDate
         };
-
         newRoom.promoStartAt = this.form.value.promoStartAt ? this.time.fromDate(this.form.value.promoStartAt) : null;
-    
+        
         this.loader = true
         this.addedItem = null
 
@@ -79,7 +85,7 @@ export class AddRoomComponent implements OnInit {
                     this.addedItem = room
                     this.loader = false
                     this.form.reset()
-                    this.router.navigateByUrl('/rooms');
+                    this.router.navigateByUrl('/manage-room');
                 }),
                 catchError(err => {
                     console.log(err);

@@ -40,8 +40,6 @@ import { WelcomeStoryComponent } from './shared/components/welcome-story/welcome
 import { SocialMediaBlockComponent } from './shared/components/social-media-block/social-media-block.component';
 import { CarouselCellsComponent } from './shared/components/carousel-cells/carousel-cells.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-
-import { UserService } from './services/user.service';
 import { BookingComponent } from './booking/booking.component';
 import { CreateComponent } from './booking/components/create/create.component';
 import { AdminToolBarComponent } from './shared/components/admin-tool-bar/admin-tool-bar.component';
@@ -52,6 +50,9 @@ import { ViewComponent } from './rooms/components/view/view.component';
 import { ManageButtonComponent } from './shared/components/manage-button/manage-button.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
+import { UserService } from './shared/services/user.service';
+import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.component';
+
 
 @NgModule({
   declarations: [
@@ -77,7 +78,9 @@ import { LoginComponent } from './features/login/login.component';
     AddRoomComponent,
     EditComponent,
     ViewComponent,
-    ManageButtonComponent
+    ManageButtonComponent,
+    ReadMoreLinkComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -111,10 +114,10 @@ import { LoginComponent } from './features/login/login.component';
     AngularFireFunctionsModule
   ],
   providers: [
-    UserService,
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8181] : undefined },
-    { provide: USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulators ? ['localhost', 5001] : undefined }
+    { provide: USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulators ? ['localhost', 5001] : undefined },
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
