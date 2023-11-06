@@ -1,1 +1,116 @@
-<p>rooms works!</p>
+<section class="d-hero-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center d-hero-content">
+                <div>
+                    <h1 class="title">{{room.title}}</h1>
+                    <h2 class="title-room"><span class="t-italic">{{room.shortDescription}}</span></h2>
+
+                    <picture>
+                        <img class="lazy" src="../../assets/room/Superior-Room-Hotel-El-Palace-Barcelona-35.tmedium.png"
+                            alt="Classic Room" title="Classic Room">
+                    </picture>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="d-content-intro-room">
+    <div class="container">
+        <div class="col-12 text-center text-color-white">
+            <h2 class="title">.</h2>
+            <h2 class="title">.</h2>
+            <div class="mt-4">{{room.longDescription}}</div>
+        </div>
+    </div>
+
+    <div class="col-12 text-center d-hero-content mt-4">
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary" (click)="activateBlockView('person')">
+                <mat-icon>person_add</mat-icon>
+                <span>2 Pers</span>
+            </button>
+
+            <button type="button" class="btn btn-outline-primary" (click)="activateBlockView('date')">
+                <mat-icon>today icon</mat-icon>
+                <span>Today</span>
+            </button>
+
+            <!-- <button type="button" class="btn btn-outline-primary" (click)="activateBlockView('time')">
+                <mat-icon>today</mat-icon>
+                <small>Days</small>
+            </button> -->
+
+            <button type="button" class="btn btn-outline-primary" (click)="activateBlockView('time')">
+                <mat-icon>access_time</mat-icon>
+                <small>Time</small>
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="col-12 text-center d-hero-content mt-4">
+        <form [formGroup]="form">
+            <div [hidden]="!isPers" class="">
+                <h2>Number of guests?</h2>
+                <button type="button" class="btn" [ngClass]="{'btn-primary':form.get('isPers').value === '1'}"
+                    (click)="setIsPers('1')"> 1 </button>
+                <button type="button" class="btn" [ngClass]="{'btn-primary':form.get('isPers').value === '2'}"
+                    (click)="setIsPers('2')"> 2 </button>
+                <button type="button" class="btn" [ngClass]="{'btn-primary':form.get('isPers').value === '3'}"
+                    (click)="setIsPers('3')"> 3 </button>
+                <button type="button" class="btn" [ngClass]="{'btn-primary':form.get('isPers').value === 'more'}"
+                    (click)="setIsPers('more')"> + more </button>
+            </div>
+
+            <div [hidden]="!isToday" class="col">
+                <h2>On which day?</h2>
+                <div class="form-group">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="promoStartPicker" formControlName="isToday">
+                        <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #promoStartPicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <p class="text-center col-12 text-center text-color-white">How many days is your stay?</p>
+                {{ form.get('isDaysNo').value }}
+                <mat-slider min="1" max="5" step="1"  formControlName="isDaysNo">
+                    <input matSliderThumb>
+                </mat-slider>
+            </div>
+
+            <div [hidden]="!isTime" class="mb-4">
+                <div class="form-group">
+                    <h2>At what time?</h2>
+                    <button type="button" class="btn"
+                        [ngClass]="{'btn-primary':form.get('isTime').value === '15:00 - 16:00'}"
+                        (click)="setIsTime('15:00 - 16:00')"> 15:00 - 16:00 </button>
+                    <button type="button" class="btn"
+                        [ngClass]="{'btn-primary':form.get('isTime').value === '16:00 - 17:00'}"
+                        (click)="setIsTime('16:00 - 17:00')"> 16:00 - 17:00 </button>
+                    <button type="button" class="btn"
+                        [ngClass]="{'btn-primary':form.get('isTime').value === '17:00 - 18:00'}"
+                        (click)="setIsTime('17:00 - 18:00')">17:00 - 18:00 </button>
+                    <button type="button" class="btn"
+                        [ngClass]="{'btn-primary':form.get('isTime').value === '18:00 - 19:00'}"
+                        (click)="setIsTime('18:00 - 19:00')"> 18:00 - 19:00 </button>
+                    <button type="button" class="btn"
+                        [ngClass]="{'btn-primary':form.get('isTime').value === '19:00 - 20:00'}"
+                        (click)="setIsTime('19:00 - 20:00')"> 19:00 - 20:00 </button>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onCreate()">
+                    Continue booking
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</section>

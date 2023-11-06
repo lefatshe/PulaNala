@@ -1237,7 +1237,7 @@ footer .d-block-right .position-relative .langs {
 
 .d-content-text-img {
     margin: 0;
-    padding: 75px 0
+    /* padding: 75px 0 */
 }
 
 .d-content-text-img .d-block-text {
@@ -2241,7 +2241,7 @@ footer .d-block-bottom li a {
 .d-slider-gastronomy {
     overflow: hidden;
     margin: 0;
-    padding: 75px 0;
+    /* padding: 75px 0; */
     background-color: var(--color-bg-grey-15)
 }
 

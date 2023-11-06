@@ -4,6 +4,9 @@ import { AddRoomComponent } from './rooms/components/add/add.component';
 import { ViewComponent } from './rooms/components/view/view.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { RoomResolver } from './shared/resolvers/rooms.resolve';
+import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,20 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'rooms/:roomUrl',
+    component: RoomsComponent,
+    resolve: {
+      details: RoomResolver
+    }
+  },
+  {
+    path: 'booking/:roomUrl',
+    component: RoomBookingComponent,
+    resolve: {
+      details: RoomResolver
+    }
   },
   {
     path: '**',

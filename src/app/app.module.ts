@@ -40,7 +40,6 @@ import { WelcomeStoryComponent } from './shared/components/welcome-story/welcome
 import { SocialMediaBlockComponent } from './shared/components/social-media-block/social-media-block.component';
 import { CarouselCellsComponent } from './shared/components/carousel-cells/carousel-cells.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { BookingComponent } from './booking/booking.component';
 import { CreateComponent } from './booking/components/create/create.component';
 import { AdminToolBarComponent } from './shared/components/admin-tool-bar/admin-tool-bar.component';
 import { RoomsComponent } from './rooms/rooms.component';
@@ -52,7 +51,8 @@ import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserService } from './shared/services/user.service';
 import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.component';
-
+import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,6 @@ import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.co
     CarouselCellsComponent,
     FooterComponent,
     LoginComponent,
-    BookingComponent,
     CreateComponent,
     AdminToolBarComponent,
 
@@ -80,6 +79,7 @@ import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.co
     ViewComponent,
     ManageButtonComponent,
     ReadMoreLinkComponent,
+    RoomBookingComponent,
     
   ],
   imports: [
@@ -104,6 +104,7 @@ import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.co
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSliderModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,

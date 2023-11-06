@@ -31,7 +31,7 @@
               <mat-form-field>
                 <mat-label>Room category</mat-label>
                 <mat-select  formControlName="category">
-                  <mat-option *ngFor="let option of categoryOptions" [value]="option.value">
+                  <mat-option *ngFor="let option of categoryOptions" [value]="option.label">
                     {{option.label}}
                   </mat-option>
                 </mat-select>

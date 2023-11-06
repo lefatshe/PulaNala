@@ -29,23 +29,30 @@
                             <!-- <th scope="col">No</th> -->
                             <th scope="col">Room name</th>
                             <th scope="col">Bookings</th>
-                            <th scope="col">Availability</th>
+                            <!-- <th scope="col">Availability</th> -->
                             <th></th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let room of (listRooms$ | async) as roomItem else LOADERDISPLAY">
-                        <tr *ngIf="room?.id !== deletedItem?.id">
+                        <tr *ngIf="room?.id !== deletedItem?.id" [routerLink]="['/rooms', room.url]">
                             <!-- <th scope="row">{{i}}</th> -->
                             <td class="align-middle">{{room.title}}</td>
-                            <td class="align-middle">20</td>
-                            <td class="align-middle">Availability</td>
+                            <td class="align-right">20 (Availability)</td>
+                            <!-- <td class="align-middle">Availability</td> -->
                             <td class="float-right mr-4">
-                                <app-manage-button [room]="room" (itemDelete)="onDelete($event)"></app-manage-button>
+                                <app-manage-button [room]="room" (itemDelete)="onDelete($event)"
+                                    (roomEdited)="reLoadRooms()"></app-manage-button>
                             </td>
                         </tr>
                     </tbody>
+
                 </table>
 
+                <ng-template #LOADERDISPLAY>
+                    <div class="row justify-content-center">
+                        <mat-spinner></mat-spinner>
+                    </div>
+                </ng-template>
 
 
                 <!-- <div *ngIf="addedItem">

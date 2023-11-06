@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RoomModal } from '../../models/room.model';
 import { RoomsList } from './data';
 import { RoomsService } from '../../services/rooms.service';
