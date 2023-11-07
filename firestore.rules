@@ -40,6 +40,18 @@ service cloud.firestore {
 
     }
     
+    match /rooms/{roomId} {
+      allow read: if isKnownUser();
+      
+      allow create, update: if isValidCourse() && isAdmin();
+      allow delete: if isAdmin();
+
+      match /rooms/{roomId} {
+        allow read: if isKnownUser()
+      }
+
+    }
+    
   }
 
 }

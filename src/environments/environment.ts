@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  useEmulators: true,
+  useEmulators: false,
   firebase: {
     apiKey: 'AIzaSyDRFn-PWPYnkrfyo52X-0f6K6Of_cMuSsI',
     authDomain: 'pula-nala-web-portal.firebaseapp.com',

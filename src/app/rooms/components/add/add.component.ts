@@ -22,6 +22,9 @@ export class AddRoomComponent implements OnInit {
     loader: boolean;
     addedItem = null
 
+    percentages$: Observable<number>;
+    iconUrl = ''
+
     categoryOptions = Category
 
 
@@ -33,22 +36,24 @@ export class AddRoomComponent implements OnInit {
         url: [''],
         promo: [false],
         promoStartAt: [null],
-        category: ['', Validators.required],
+        // category: ['STANDARDR', Validators.required],
         dateCreated: [null],
+        imageUrl: ['', Validators.required],
     });
 
     constructor(
         private fb: FormBuilder,
         private roomService: RoomsService,
         private afs: AngularFirestore,
-        private router: Router
+        private router: Router,
+        private storage: AngularFireStorage
     ) {
 
     }
 
-    @HostListener("click", ["$event"]) click($event: Event) {
-        $event.preventDefault();
-    }
+    // @HostListener("click", ["$event"]) click($event: Event) {
+    //     $event.preventDefault();
+    // }
 
     // tslint:disable-next-line:typedef
     ngOnInit() {
@@ -70,11 +75,11 @@ export class AddRoomComponent implements OnInit {
             url: val.title.replace(/\s+/g, '-').toLowerCase(),
             promo: val.promo,
             promoStartAt: val.promoStartAt,
-            category: val.category,
+            // category: val.category,
             dateCreated: nowDate
         };
         newRoom.promoStartAt = this.form.value.promoStartAt ? this.time.fromDate(this.form.value.promoStartAt) : null;
-        
+
         this.loader = true
         this.addedItem = null
 
@@ -94,6 +99,37 @@ export class AddRoomComponent implements OnInit {
                 }),
             )
             .subscribe();
+    }
+
+    onFileUpload(event) {
+        console.log(event)
+
+        const file: File = event.target.files[0]
+
+        const filePath = `rooms/${this.roomId}${file.name}`
+
+        const task = this.storage.upload(filePath, file, {
+            cacheControl: "max-age=2658799, public"
+        })
+
+        this.percentages$ = task.percentageChanges();
+
+        task.snapshotChanges()
+            .pipe(
+                last(),
+                concatMap(() => this.storage.ref(filePath).getDownloadURL()),
+                tap(url => {
+                    this.iconUrl = url;
+                    this.form.controls.imageUrl.setValue(url)
+                }),
+                catchError(err => {
+                    console.log(err);
+                    alert("Could not upload!")
+                    return throwError(err)
+                })
+            )
+            .subscribe()
+
     }
 
 }

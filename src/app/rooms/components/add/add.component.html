@@ -26,7 +26,26 @@
               </mat-form-field>
             </div>
 
-            <div class="">
+            
+            
+            <div class="mt-4 mb-4">
+
+              <div class="upload=progress" *ngIf="(percentages$ | async) as percentage">
+
+                <mat-progress-bar class="progress-bar" mode="determinate" [value]="percentage" [bufferValue]="" color="primary"></mat-progress-bar>
+  
+              </div>
+
+        
+
+              <img class="mat-elevation-z3" [src]="iconUrl" *ngIf="iconUrl" class="img-thumbnail d-block">
+
+              <input type="file" (change)="onFileUpload($event)">
+
+              <span>{{percentage / 100 | percent}}</span>
+            </div>
+
+            <!-- <div class="form-group">
               <h4>Category</h4>
               <mat-form-field>
                 <mat-label>Room category</mat-label>
@@ -36,13 +55,13 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-            </div>
+            </div> -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <mat-form-field appearance="outline">
                 <input placeholder="Short description" matInput formControlName="shortDescription">
               </mat-form-field>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <mat-form-field appearance="outline">
@@ -51,18 +70,20 @@
               </mat-form-field>
             </div>
 
-            <hr />
-
-            <mat-slide-toggle formControlName="promo">Room in promotion?</mat-slide-toggle>
 
             <div class="form-group">
-              <mat-form-field appearance="outline">
-                <mat-label>Promotion start date</mat-label>
-                <input matInput [matDatepicker]="promoStartPicker" formControlName="promoStartAt">
-                <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>
-                <mat-datepicker #promoStartPicker></mat-datepicker>
-              </mat-form-field>
+              <mat-slide-toggle formControlName="promo">Room in promotion?</mat-slide-toggle>
+
+              <div class="form-group" *ngIf="form.get('promo').value">
+                <mat-form-field appearance="outline">
+                  <mat-label>Promotion start date</mat-label>
+                  <input matInput [matDatepicker]="promoStartPicker" formControlName="promoStartAt">
+                  <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #promoStartPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
             </div>
+            
 
             <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="onCreate()">
               Create room
