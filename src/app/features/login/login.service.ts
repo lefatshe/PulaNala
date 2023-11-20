@@ -3,7 +3,7 @@ import { LoginModal } from './models/login.modal';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { convertSnaps } from 'src/app/shared/services/db-utils';
-import { CustomerModal } from 'src/app/customer/models/customer.model';
+import { CustomerModal } from 'src/app/features/customer/models/customer.model';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

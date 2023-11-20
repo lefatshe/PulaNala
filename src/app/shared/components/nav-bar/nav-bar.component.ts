@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { CustomersService } from 'src/app/customer/services/customer.service';
+import { CustomersService } from 'src/app/features/customer/services/customer.service';
 import { loginService } from 'src/app/features/login/login.service';
 
 @Component({

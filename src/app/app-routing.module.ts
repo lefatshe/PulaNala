@@ -7,9 +7,9 @@ import { LoginComponent } from './features/login/login.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomResolver } from './shared/resolvers/rooms.resolve';
 import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
-import { AddCustomerComponent } from './customer/components/add/add.component';
+import { AddCustomerComponent } from './features/customer/components/add/add.component';
 import { CustomerResolver } from './shared/resolvers/customer.resolve';
-import { ViewCustomerComponent } from './customer/components/view/view.component';
+import { ViewCustomerComponent } from './features/customer/components/view/view.component';
 
 const routes: Routes = [
   {

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { RoomsList } from 'src/app/rooms/components/view/data';
-import { RoomModal } from 'src/app/rooms/models/room.model';
-import { RoomsService } from 'src/app/rooms/services/rooms.service';
+import {RoomsList} from '../../../features/rooms/components/view/data';
+import {RoomModal} from '../../../features/rooms/models/room.model';
+import {RoomsService} from '../../../features/rooms/services/rooms.service';
 
 @Component({
   selector: 'app-carousel-cells',
@@ -10,20 +10,19 @@ import { RoomsService } from 'src/app/rooms/services/rooms.service';
   styleUrls: ['./carousel-cells.component.css']
 })
 export class CarouselCellsComponent implements OnInit {
-  list = RoomsList
-  listRooms: RoomModal[] = []
-  deletedItem: RoomModal
-  
+  list = RoomsList;
+  listRooms: RoomModal[] = [];
+  deletedItem: RoomModal;
+
 
   constructor(
-    private roomService: RoomsService
+      private roomService: RoomsService
   ) {
     this.roomService.getAllRooms('')
-    .subscribe(res => this.listRooms = res)
-   }
+        .subscribe(res => this.listRooms = res);
+  }
 
   ngOnInit(): void {
-  
   }
 
 

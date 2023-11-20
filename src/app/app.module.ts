@@ -40,7 +40,7 @@ import { WelcomeStoryComponent } from './shared/components/welcome-story/welcome
 import { SocialMediaBlockComponent } from './shared/components/social-media-block/social-media-block.component';
 import { CarouselCellsComponent } from './shared/components/carousel-cells/carousel-cells.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { CreateComponent } from './booking/components/create/create.component';
+import { CreateComponent } from './features/booking/components/create/create.component';
 import { AdminToolBarComponent } from './shared/components/admin-tool-bar/admin-tool-bar.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { AddRoomComponent } from './rooms/components/add/add.component';
@@ -54,8 +54,8 @@ import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.co
 import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { ButtonHomeComponent } from './shared/components/btn/button-home/button-home.component';
-import { CustomerComponent } from './customer/customer.component';
-import { AddCustomerComponent } from './customer/components/add/add.component';
+import { CustomerComponent } from './features/customer/customer.component';
+import { AddCustomerComponent } from './features/customer/components/add/add.component';
 
 @NgModule({
   declarations: [

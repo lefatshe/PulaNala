@@ -3,11 +3,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebaseui from 'firebaseui';
 import * as firebase from 'firebase';
-import { CustomersService } from 'src/app/customer/services/customer.service';
+import { CustomersService } from 'src/app/features/customer/services/customer.service';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { loginService } from './login.service';
-import { CustomerModal } from 'src/app/customer/models/customer.model';
+import { CustomerModal } from 'src/app/features/customer/models/customer.model';
 
 @Component({
   selector: 'app-login',

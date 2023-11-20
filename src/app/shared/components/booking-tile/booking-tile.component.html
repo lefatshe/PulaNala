@@ -1,96 +1,95 @@
-<div class="container-fluid">
-    <ul>
-        <li *ngFor="let room of (listRooms$ | async) as roomItem">{{room.title}}</li>
-    </ul>
+<!--<div class="container-fluid">-->
+<!--    <ul>-->
+<!--        <li *ngFor="let room of (listRooms$ | async) as roomItem">{{room.title}}</li>-->
+<!--    </ul>-->
 
-    <div class="row justify-content-center">
-        <form [formGroup]="form">
-            <div class="text-center block-hue">
-                <label>
-                    <span class="d-none">Number of adults</span>
-                    <select id="adults" class="form-control rounded-0" name="adultos" formControlName="isPers">
-                        <option value="0">Adults</option>
-                        <option value="1">1 adult</option>
-                        <option value="2">2 adults</option>
-                    
-                    </select>
-                </label>
-            </div>
+<!--    <div class="row justify-content-center">-->
+<!--        <form [formGroup]="form">-->
+<!--            <div class="text-center block-hue">-->
+<!--                <label>-->
+<!--                    <span class="d-none">Number of adults</span>-->
+<!--                    <select class="form-control rounded-0" name="adultos" formControlName="isPers">-->
+<!--&lt;!&ndash;                        <option value="0">Adults</option>&ndash;&gt;-->
+<!--                        <option value="1">1 adult</option>-->
+<!--                        <option value="2">2 adults</option>-->
+<!--                    </select>-->
+<!--                </label>-->
+<!--            </div>-->
 
-            <div class="block-hr">
-                <hr>
-            </div>
+<!--            <div class="block-hr">-->
+<!--                <hr>-->
+<!--            </div>-->
 
-            
+<!--            -->
 
-            <div class="text-center block-calendar b-1" data-toggle="modal" data-target="#ModalBuscador">
-                <label>
-                    <span class="d-none">Arrival</span>
-                    <input type="text" id="cal-1" name="datein" class="form-control rounded-0 b-checkin"
-                        placeholder="Arrival" formControlName="isToday">
+<!--            <div class="text-center block-calendar b-1" data-toggle="modal" data-target="#ModalBuscador">-->
+<!--                <label>-->
+<!--                    <span class="d-none">Arrival</span>-->
+<!--                    <input type="text" id="cal-1" name="datein" class="form-control rounded-0 b-checkin"-->
+<!--                        placeholder="Arrival" formControlName="isToday">-->
 
 
-                    <!-- <mat-form-field appearance="outline">
-                        <mat-label>{{momentDate}}</mat-label>
-                        <input matInput [matDatepicker]="promoStartPicker" formControlName="isToday">
-                        <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>
-                        <mat-datepicker #promoStartPicker></mat-datepicker>
-                    </mat-form-field> -->
+<!--                    &lt;!&ndash; <mat-form-field appearance="outline">-->
+<!--                        <mat-label>{{momentDate}}</mat-label>-->
+<!--                        <input matInput [matDatepicker]="promoStartPicker" formControlName="isToday">-->
+<!--                        <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>-->
+<!--                        <mat-datepicker #promoStartPicker></mat-datepicker>-->
+<!--                    </mat-form-field> &ndash;&gt;-->
 
-                </label>
-            </div>
+<!--                </label>-->
+<!--            </div>-->
 
-            <div class="block-hr">
-                <hr>
-            </div>
+<!--            <div class="block-hr">-->
+<!--                <hr>-->
+<!--            </div>-->
 
-            <div class="text-center block-hue">
-                <label>
-                    <span class="d-none">Days</span>
-                    <select id="adults" class="form-control rounded-0" name="adultos" formControlName="isDaysNo">
-                        <option value="1">1 day(s)</option>
-                        <option value="2">2 day(s)</option>
-                        <option value="3">3 day(s)</option>
-                        <option value="4">5 day(s)</option>
-                        <option value="6">6 day(s)</option>
-                    </select>
-                </label>
-            </div>
+<!--            <div class="text-center block-hue">-->
+<!--                <label>-->
+<!--                    <span class="d-none">Days</span>-->
+<!--                    <select id="adults" class="form-control rounded-0" name="adultos" formControlName="isDaysNo">-->
+<!--                        <option value="1">1 day(s)</option>-->
+<!--                        <option value="2">2 day(s)</option>-->
+<!--                        <option value="3">3 day(s)</option>-->
+<!--                        <option value="4">5 day(s)</option>-->
+<!--                        <option value="6">6 day(s)</option>-->
+<!--                    </select>-->
+<!--                </label>-->
+<!--            </div>-->
 
-            <div class="block-hr">
-                <hr>
-            </div>
+<!--            <div class="block-hr">-->
+<!--                <hr>-->
+<!--            </div>-->
 
-            <div class="text-center block-hue">
-                <label>
-                    <span class="d-none">Number of adults</span>
-                    <select id="adults" class="form-control rounded-0" name="adultos" formControlName="isTime">
-                        <option value="15:00 - 16:00">15:00 - 16:00</option>
-                        <option value="15:00 - 16:00">17:00 - 18:00</option>
-                        <option value="15:00 - 16:00">18:00 - 19:00</option>
-                        <option value="15:00 - 16:00">20:00 - 21:00</option>
-                    </select>
-                </label>
-            </div>
+<!--            <div class="text-center block-hue">-->
+<!--                <label>-->
+<!--                    <span class="d-none">Number of adults</span>-->
+<!--                    <select  class="form-control rounded-0" name="adultos" formControlName="isTime">-->
+<!--                        <option value="15:00 - 16:00">15:00 - 16:00</option>-->
+<!--                        <option value="15:00 - 16:00">17:00 - 18:00</option>-->
+<!--                        <option value="15:00 - 16:00">18:00 - 19:00</option>-->
+<!--                        <option value="15:00 - 16:00">20:00 - 21:00</option>-->
+<!--                    </select>-->
+<!--                </label>-->
+<!--            </div>-->
 
-            <div class="block-hr">
-                <hr>
-            </div>
+<!--            <div class="block-hr">-->
+<!--                <hr>-->
+<!--            </div>-->
 
-            <div class="text-center block-promo">
-                <input type="text" id="promo" name="prom" class="form-control rounded-0" formControlName="promo"
-                    placeholder="Promo code">
-            </div>
-            <div class="text-center block-btn" *ngIf="!form.valid else BUTTON">
-                <button type="submit" class="btn btn-light" [disabled]="!form.valid" (click)="bookNow()">Book
-                    now</button>
-            </div>
-            <ng-template #BUTTON>
-                <div class="text-center block-btn">
-                    <button type="submit" class="box foo" [disabled]="!form.valid" (click)="bookNow()">Book now</button>
-                </div>
-            </ng-template>
+<!--            <div class="text-center block-promo">-->
+<!--                <input type="text" id="promo" name="prom" class="form-control rounded-0" formControlName="promo"-->
+<!--                    placeholder="Promo code">-->
+<!--            </div>-->
+<!--            <div class="text-center block-btn" *ngIf="!form.valid else BUTTON">-->
+<!--                <button type="submit" class="btn btn-light" [disabled]="!form.valid" (click)="bookNow()">Book-->
+<!--                    now</button>-->
+<!--            </div>-->
+<!--            <ng-template #BUTTON>-->
+<!--                <div class="text-center block-btn">-->
+<!--                    <button type="submit" class="box foo" [disabled]="!form.valid" (click)="bookNow()">Book now</button>-->
+<!--                </div>-->
+<!--            </ng-template>-->
 
-        </form>
-    </div>
-</div>
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
