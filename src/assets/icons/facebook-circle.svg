@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 26</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01.-Home-Desktop-v11" transform="translate(-744.000000, -2926.000000)">
+            <g id="Group-38" transform="translate(0.000000, 2364.000000)">
+                <g id="Group-27" transform="translate(637.000000, 520.000000)">
+                    <g id="Group-26" transform="translate(107.000000, 42.000000)">
+                        <circle id="back-copy" fill="#D7282F" fill-rule="nonzero" cx="15" cy="15" r="15"></circle>
+                        <g id="Group-3" transform="translate(11.000000, 7.000000)">
+                            <polygon id="Clip-2" points="0.555555556 0 7.55555556 0 7.55555556 15 0.555555556 15"></polygon>
+                            <path d="M7.55555556,4.85716947 L5.17180717,4.85716947 L5.17180717,3.30031671 C5.17180717,2.71595355 5.56067873,2.57933304 5.83447924,2.57933304 L7.51688669,2.57933304 L7.51688669,0.00931503447 L5.19987328,0 C2.62777011,0 2.04243576,1.91703409 2.04243576,3.14382413 L2.04243576,4.85716947 L0.555555556,4.85716947 L0.555555556,7.50543377 L2.04243576,7.50543377 L2.04243576,15 L5.17180717,15 L5.17180717,7.50543377 L7.28237874,7.50543377 L7.55555556,4.85716947 Z" id="Fill-1" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

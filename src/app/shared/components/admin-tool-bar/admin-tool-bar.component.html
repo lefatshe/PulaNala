@@ -1,0 +1,12 @@
+
+<div *ngIf="user.isLoggedIn$ | async" class="example-button-row p-2">
+
+    <a mat-button target="_blank" *ngIf="this.sectionContentType == 'app-welcome-story'">About</a>
+    <a mat-button target="_blank" *ngIf="this.sectionContentType == 'app-carousel-cells'">Rooms</a>
+
+    <button mat-button *ngIf="canAdd" [routerLink]="addPathUrl">Add + </button>
+    <button mat-button *ngIf="canView" color="primary" [routerLink]="viewPathUrl">Manage rooms</button>
+    <!-- <button mat-button color="accent" *ngIf="canEdit" [routerLink]="viewPathUrl">update</button>
+    <button mat-button color="warn" *ngIf="canDelete" [routerLink]="viewPathUrl">Delete</button> -->
+
+</div>

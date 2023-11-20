@@ -1,0 +1,84 @@
+<section class="d-content-info no-lines aos-init aos-animate" data-aos="fade-in" data-aos-delay="200">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center d-block-intro">
+  
+  
+          <p class="p-section mt-4">Room</p>
+          <h2 class="title">Edit Room</h2>
+  
+          <!-- <div *ngIf="addedItem">
+            <div class="alert alert-success" role="alert">
+              This item has been successfully updated " {{addedItem.title}} "
+            </div>
+          </div> -->
+  
+          <div class="row justify-content-center" *ngIf="false else SHOWCONTENT">
+            <mat-spinner></mat-spinner>
+          </div>
+  
+          <ng-template #SHOWCONTENT>
+            <form [formGroup]="form">
+  
+              <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <input placeholder="Room name" matInput formControlName="title">
+                </mat-form-field>
+              </div>
+  
+              <!-- <div class="">
+                <h4>Category</h4>
+                <mat-form-field>
+                  <mat-label>Room category</mat-label>
+                  <mat-select  formControlName="category">
+                    <mat-option *ngFor="let option of categoryOptions" [value]="option.label">
+                      {{option.label}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div> -->
+  
+              <!-- <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <input placeholder="Short description" matInput formControlName="shortDescription">
+                </mat-form-field>
+              </div> -->
+  
+              <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <textarea matInput placeholder="Room description" formControlName="longDescription" rows="4"
+                    cols="50"></textarea>
+                </mat-form-field>
+              </div>
+  
+              
+  
+              <mat-slide-toggle formControlName="promo">Room in promotion?</mat-slide-toggle>
+  
+              <div class="form-group" *ngIf="form.get('promo').value">
+                <mat-form-field appearance="outline">
+                  <mat-label>Promotion start date</mat-label>
+                  <input matInput [matDatepicker]="promoStartPicker" formControlName="promoStartAt">
+                  <mat-datepicker-toggle matSuffix [for]="promoStartPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #promoStartPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <hr />
+              
+              <button mat-raised-button color="accent" [disabled]="!form.valid" (click)="cancel()">
+                Cancel
+              </button>
+  
+              <button mat-raised-button color="warn" [disabled]="!form.valid" (click)="save()">
+                Update room
+              </button>
+  
+            </form>
+          </ng-template>
+  
+  
+        </div>
+      </div>
+    </div>
+  </section>

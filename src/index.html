@@ -4,21 +4,412 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Firebase & AngularFire In Depth Course</title>
+  <title>Pula Nala Lodge | Lodge Phokeng, Rustenburg</title>
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Welcome to the most comfortable lodge in Phokeng.">
+
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <!-- <link rel="manifest" href="site.webmanifest"> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="https://use.typekit.net/bqu2oww.css">
+
+  <link rel="stylesheet preload" href="assets/aos.css" as="style">
+  <link rel="stylesheet preload" href="assets/bootstrap.min.css" as="style">
+
+  <link rel="stylesheet preload" href="assets/css/custom.min.css" as="style">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:300" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script type="text/javascript">
+    var BASE_URL = "http://pulanalalodge.co.za/";
+    var THEME_PATH = "assets/";
+    var HOTEL_LAT = "-25.598339";
+    var HOTEL_LON = "27.1595939";
+    var SITE_LANG = "en";
+    var GMAPS_KEY = 'AIzaSyCWTIWHds2uEUeFy7COR4iAA9lRhVAhSuQ';
+    var GMAPS_URL = 'https://maps.googleapis.com/maps/api/js?key='
+  </script>
+
+
+  <style>
+    .d-hero,
+    .d-hero-secondary {
+      margin: 0;
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center
+    }
+
+    .d-hero:before {
+      content: '';
+      position: absolute;
+      background: #202020;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0
+    }
+
+    .d-hero-secondary {
+      height: calc(850px + 300px)
+    }
+
+    .d-hero .d-hero-content,
+    .d-hero-secondary .d-hero-content {
+      height: 100vh
+    }
+
+    .d-hero .title {
+      font-size: 180px;
+      color: var(--color-white);
+      letter-spacing: 3.53px;
+      line-height: 130px;
+      text-shadow: 0 1px 9px rgba(0, 0, 0, .15);
+      font-family: var(--font-Freight-Disp-Light-Italic);
+      font-style: italic
+    }
+
+    .d-hero .subtitle {
+      font-family: var(--font-Freight-Disp-Light);
+      font-size: 30px;
+      color: var(--color-white);
+      letter-spacing: 0;
+      line-height: 40px;
+      margin-top: 31px
+    }
+
+    .d-hero .d-hero-content>div,
+    .d-hero-secondary .d-hero-content>div {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 679px;
+      width: 100%
+    }
+
+    .d-hero-secondary .d-hero-content>div {
+      top: 200px;
+      transform: translate(-50%, 0);
+      max-width: 740px
+    }
+
+    .d-hero .d-hero-content>div {
+      top: 50%;
+      max-width: 1200px;
+      width: 100%;
+      width: 1200px;
+      height: 210px
+    }
+
+    .d-hero-secondary .title {
+      font-family: var(--font-Freight-Disp-Light-Italic);
+      font-style: italic;
+      font-size: 140px;
+      color: var(--color-blue);
+      letter-spacing: 2.75px;
+      line-height: 120px;
+      margin-bottom: 30px
+    }
+
+    .d-hero-secondary .title-room {
+      font-family: var(--font-Freight-Disp-Light);
+      color: var(--color-gold);
+    }
+
+    .d-hero-secondary img {
+      height: 769px;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      left: 0;
+      top: 199px;
+      z-index: -1
+    }
+
+    .video-foreground {
+      width: 300% !important;
+      left: -250%
+    }
+
+    .video-background iframe,
+    .video-foreground {
+      position: absolute;
+      width: 100%;
+      height: 130vh;
+      pointer-events: none;
+      margin-top: 0
+    }
+
+    .d-hero .d-hero-content .video-background {
+      position: initial;
+      max-width: 100%;
+      transform: translate(0, 0);
+      position: absolute;
+      background: #fff;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -99;
+      width: 100% !important
+    }
+
+    .d-hero {
+      overflow: hidden
+    }
+
+    .underline {
+      --line: var(--color-blue);
+      --color: var(--color-blue);
+      text-decoration: none;
+      color: var(--color-blue);
+      position: relative;
+      display: block;
+      width: -moz-fit-content;
+      width: fit-content;
+      font-family: var(--font-Degular-Text);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 28px
+    }
+
+    .underline span {
+      background-image: -webkit-gradient(linear, left bottom, left top, from(var(--line)), to(var(--line)));
+      background-image: linear-gradient(0deg, var(--line) 0, var(--line) 100%);
+      background-position: 100% 100%;
+      background-repeat: no-repeat;
+      background-size: var(--background-size, 100%) 1px;
+      -webkit-transition: background-size .2s linear var(--background-delay, .15s);
+      transition: background-size .2s linear var(--background-delay, .15s);
+      font-size: 12px;
+      line-height: 20px;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      display: block;
+      height: 27px
+    }
+
+    .underline:hover {
+      --background-size: 0%;
+      --background-delay: 0s;
+      --stroke-dashoffset: 26;
+      --stroke-duration: .15s;
+      --stroke-easing: cubic-bezier(.3, 1.5, .5, 1);
+      --stroke-delay: .195s
+    }
+  </style>
+
+  <style>
+    @media screen and (max-width: 575px) {
+      .navbar-fixed {
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    var waitForJQuery_HZdiBmXpvFhxnfAY = setInterval(function () {
+      if (typeof $ != 'undefined') {
+
+        let uls = $('.site-nav__main').find('.menu');
+        $(uls).each(function (index) {
+          $(this).children().last().hide();
+        });
+
+        clearInterval(waitForJQuery_HZdiBmXpvFhxnfAY);
+      }
+    }, 500);
+  </script>
+
+  <script>
+    var idVideo = 'yQCBPQeqb44';
+    function loadYT() {
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      loadYT();
+      // loadYT();
+    });
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: idVideo,
+        playerVars: {
+          playlist: idVideo,
+          loop: 1,
+          autoplay: 1,
+          mute: 1,
+          showinfo: 0,
+          controls: 0,
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+    function onPlayerReady(event) {
+      player.mute();
+      player.playVideo();
+    }
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.CUED || event.data == YT.PlayerState.ENDED) {
+        playVideo();
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+    function playVideo() {
+      player.playVideo();
+    }
+  </script>
+
 </head>
 
 <body class="mat-typography">
 
-<app-root></app-root>
+  <style>
+    #preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1031;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ffffff;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /*#preloader > div {width: 100%;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);max-width: 100%;text-align: center;opacity: 1;height: 100%;overflow: hidden;width: 100vw;}
+            #preloader .display-table {margin: 0 auto;height: 800px;width: 500px;}
+            #preloader .display-table-cell {height: 800px;width: 500px;}
+            #preloader .bg-2 {background-color: #ffffff;position: absolute;left: 0;transform: translate(0,0);top:0;right:0;bottom: 0;}
+            #preloader.preloader-home {overflow: hidden;width: 100%; }*/
+  </style>
+
+  <div id="preloader">
+    <!--class="preloader-home"-->
+
+    <!--<div class="bg-1">
+                 </div>-->
+  </div>
+
+  <style>
+    @media screen and (max-width: 575px) {
+      .navbar-fixed {
+        transform: none !important;
+      }
+    }
+  </style>
+
+
+
+
+
+  <app-root></app-root>
+
+  <script src="assets/js/jquery-3.5.1.min.js"></script>
+  <script src="assets/js/aos.min.js"></script>
+
+  <script src="assets/js/featherlight.min.js" async defer></script>
+  <script src="assets/js/featherlight.gallery.min.js" async defer></script>
+  <script src="assets/js/bootstrap.min.js" async defer></script>
+  <script src="assets/js/lazyload.min.js" defer></script>
+  <script src="assets/js/aos.min.js" async defer></script>
+  <script src="assets/js/flickity.pkgd.min.js" async defer></script>
+  <!-- <script src="assets/js/flatpickr.min.js" async defer></script> -->
+  <script src="assets/js/custom.js" async defer></script>
+  <script src="assets/js/init-map.js" async defer></script>
+
+  <script>
+    let captchaReady = false;
+    function CaptchaCallback() {
+      captchaReady = true;
+    }
+
+    /* Lazy gmap */
+    document.addEventListener("DOMContentLoaded", function () {
+      var lazyloadMapElems = document.querySelectorAll(".map-lazy");
+      var lazyloadThrottleTimeout;
+      let head = document.getElementsByTagName('head')[0];
+      let gmapsScript = document.createElement('script');
+
+      gmapsScript.type = 'text/javascript';
+      gmapsScript.src = GMAPS_URL + GMAPS_KEY + '&callback=initMap';
+
+      function lazyloadMap() {
+        if (lazyloadThrottleTimeout) {
+          clearTimeout(lazyloadThrottleTimeout);
+        }
+
+        lazyloadThrottleTimeout = setTimeout(function () {
+          lazyloadMapElems.forEach(function (map) {
+            let rect = map.getBoundingClientRect();
+            if (rect.top < (window.innerHeight + 300)) {
+              head.appendChild(gmapsScript);
+
+              console.log('lazy map loaded...');
+
+              lazyloadMapElems.forEach(function (elem) {
+                elem.classList.remove('map-lazy');
+              });
+            }
+          });
+
+          if (document.querySelectorAll(".map-lazy").length === 0) {
+            document.removeEventListener("scroll", lazyloadMap);
+            window.removeEventListener("resize", lazyloadMap);
+            window.removeEventListener("orientationChange", lazyloadMap);
+          }
+        }, 100);
+      }
+
+      document.addEventListener("scroll", lazyloadMap);
+      window.addEventListener("resize", lazyloadMap);
+      window.addEventListener("orientationChange", lazyloadMap);
+    });
+
+  </script>
+
+  <script>
+    if (window.scroll) {
+      window.addEventListener('scroll', this.onScroll.bind(this), false);
+    }
+
+    function onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const divLogo = document.querySelector('.logo');
+      const logo = divLogo.querySelector('img');
+      scrollTop > 100 ? logo.classList.add('is-show') : logo.classList.remove('is-show');
+    }
+
+  </script>
 
 </body>
+
 </html>

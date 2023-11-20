@@ -1,0 +1,9 @@
+.d-block {
+    width: 220px;
+    display: block!important;
+}
+
+.logo{
+    margin-top: 5rem;
+    width: 100px;
+}

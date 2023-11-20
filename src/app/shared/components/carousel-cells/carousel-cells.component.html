@@ -1,0 +1,178 @@
+<div class="container-fluid" data-aos="fade-in">
+    <div class="row justify-content-end">
+        <div class="d-block-text">
+            <div class="display-table">
+                <div class="display-table-cell">
+                    <p class="p-section">Perfect stays</p>
+                    <!-- <h2 class="title t-italic">Oh là là!</h2> -->
+                    <h2 class="title">Rooms</h2>
+
+                    <p>With a range of our available rooms to choose for, here you can check from our selection.</p>
+
+                    <!-- <a href="" class="underline" title="LEARN MORE">
+                        <span>SEE MORE</span><svg viewBox="0 0 13 20">
+                            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                        </svg>
+                    </a> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0 d-block-slider" *ngIf="listRooms">
+            <div class="carousel-blocks">
+
+                <!-- carousel-cell-0 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[0]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[0]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[0]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[0]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[0]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-1 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[1]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[1]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[1]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[1]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[1]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-3 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[3]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[3]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[3]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[3]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[3]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+                
+                
+
+                
+            </div>
+
+
+        </div>
+    </div>
+</div>
