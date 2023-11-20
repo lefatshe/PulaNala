@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import * as firebaseui from 'firebaseui';
 import * as firebase from 'firebase';
 import { CustomersService } from 'src/app/customer/services/customer.service';
-import { catchError, tap } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { catchError, tap} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 import { loginService } from './login.service';
+import { CustomerModal } from 'src/app/customer/models/customer.model';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ import { loginService } from './login.service';
 export class LoginComponent implements OnInit, OnDestroy {
 
   ui: firebaseui.auth.AuthUI
+  Customer$: Observable<CustomerModal[]>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -93,6 +95,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   )
     //   .subscribe();
 
+  }
+
+  loginManually(){
+    const number = '077891922121'
+    // console.log(number)
+    this.Customer$ = this.service.createUser(number)
   }
 
   ngOnDestroy() {
