@@ -58,4 +58,13 @@ export class UserService {
         });
     }
 
+    getUser() {
+        let usr 
+        this.afAuth.authState.pipe(
+            map(user => console.log(user))
+        )
+        console.log(usr)
+        return usr
+    }
+
 }

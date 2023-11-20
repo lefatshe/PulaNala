@@ -52,7 +52,10 @@ import { LoginComponent } from './features/login/login.component';
 import { UserService } from './shared/services/user.service';
 import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.component';
 import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { ButtonHomeComponent } from './shared/components/btn/button-home/button-home.component';
+import { CustomerComponent } from './customer/customer.component';
+import { AddCustomerComponent } from './customer/components/add/add.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,13 @@ import {MatSliderModule} from '@angular/material/slider';
     ManageButtonComponent,
     ReadMoreLinkComponent,
     RoomBookingComponent,
+    ButtonHomeComponent,
     
+
+    // Customer
+    CustomerComponent,
+    AddCustomerComponent
+
   ],
   imports: [
     BrowserModule,

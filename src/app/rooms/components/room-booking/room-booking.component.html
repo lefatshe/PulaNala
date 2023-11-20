@@ -1,4 +1,4 @@
-<section class="d-content-info no-lines aos-init aos-animate" data-aos="fade-in" data-aos-delay="200">
+<section class="d-content-info no-lines aos-init aos-animate height-top" data-aos="fade-in" data-aos-delay="200">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 text-center d-block-intro">
@@ -12,7 +12,7 @@
             <main>
               <div class="py-5 text-center">
 
-                <h2>Checkout room</h2>
+                <h2></h2>
                 <!-- <p class="lead">{{room.shortDescription}}</p> -->
               </div>
               <div class="row">
@@ -29,14 +29,14 @@
                       <div>
                         <h6 class="my-0">No person</h6>
                       </div>
-                      <span class="">{{booking.isPers}}</span>
+                      <span class="">{{booking.isPers}} people(s)</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between">
                       <div>
                         <h6 class="my-0">Date</h6>
                       </div>
-                      <span class="">{{booking.isToday}}</span>
+                      <span class="">{{booking.isToday  | date }}</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between">
@@ -53,6 +53,14 @@
                       <span class="">{{booking.isTime}}</span>
                     </li>
 
+                    <li class="list-group-item d-flex justify-content-between">
+                      <div>
+                        <h6 class="my-0">
+                          <strong>Promo code</strong></h6>
+                      </div>
+                      <span class="text-danger">#</span>
+                    </li>
+
 
 
 
@@ -63,8 +71,10 @@
                   <div class="card p-2">
                     <div class="input-group" *ngIf="room?.url">
                       <!-- <input type="text" class="form-control" placeholder="Promo code"> -->
-                      <button type="submit" class="btn btn-secondary w-100 btn-sm"
-                        [routerLink]="['/rooms', room?.url]">Back</button>
+                      <a href="" class="btn btn-secondary w-100 btn-sm">
+                        Cancel Booking
+                      </a>
+                      
                     </div>
                   </div>
                 </div>
@@ -73,34 +83,70 @@
                 <div class="col-md-7 col-lg-8">
 
                   <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Information</span>
+                    <span class="text-primary"></span>
                   </h4>
+<!-- 
+                  {{room|json}} -->
 
+                  <hr class="my-4">
 
-                  <div>
+                  <div *ngIf="user else SignInBanner" class="mt-4">
                     <div class="row g-3">
-                      <div class="col-sm-6">
-                        <label for="firstName" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                        <div class="invalid-feedback">
-                          Valid first name is required.
+                      <div class="container-fluid">
+                        <div class="row">
+                          
+                            <!-- <div class="col-md-4">
+                              <picture>
+                                <img src="../../assets/img/room_image.jpg" class="img-fluid img-thumbnail" alt="...">
+                              
+                              </picture>
+                            </div> -->
+                            <div class="col">
+                              <h1 class="title">{{room?.title}}</h1>
+                              <h2 class="title-room"><span class="t-italic">{{room?.longDescription}}</span></h2>
+                          </div>
                         </div>
-                      </div>
+                    </div>
                     </div>
 
                     <hr class="my-4">
 
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="same-address">
-                      <label class="form-check-label" for="same-address">Shipping address is the same as my billing
-                        address</label>
+                    <div>
+
+                      <ul class="list-group mb-3">
+
+                        <li class="list-group-item d-flex justify-content-between">
+                          <div>
+                            <h6 class="my-0">Name</h6>
+                          </div>
+                          <span class="">{{user.displayName}} </span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between">
+                          <div>
+                            <h6 class="my-0">Email</h6>
+                          </div>
+                          <span class="">{{user.email}} </span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between">
+                          <div>
+                            <h6 class="my-0">Number</h6>
+                          </div>
+                          <span class="">{{user.phoneNumber}} </span>
+                        </li>
+
+                        </ul>
+                     
                     </div>
 
+                    
 
-                    <hr class="my-4">
 
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                      <span class="text-primary">Payment method </span>
+                    
+
+                    <!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
+                      <span class="text-primary"> Booking details </span>
                     </h4>
 
 
@@ -157,10 +203,10 @@
                       </div>
                     </div>
 
-                    <hr class="my-4">
+                    <hr class="my-4"> -->
 
                     <button class="w-100 btn btn-primary btn-lg" type="submit" (click)="complete()">Continue to
-                      checkout</button>
+                      make a booking</button>
                   </div>
                 </div>
               </div>
@@ -172,6 +218,16 @@
         </div>
 
       </div>
+
+      <ng-template #SignInBanner>
+        <div class="alert alert-warning">
+          Only registered users are permitted to make an online booking. 
+          <br/>
+          <a  href="./login">
+            Register here
+          </a>
+        </div>
+      </ng-template>
 
     </div>
 

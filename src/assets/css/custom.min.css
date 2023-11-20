@@ -1,6 +1,6 @@
 :root {
-    --color-gold: #1a66d2;
-    --color-blue: #1a66d2;
+    --color-gold: #9A8D7A;
+    --color-blue: #7BAEC4;
     --color-dark-blue: #1D4588;
     --color-lazy-grey: #595959;
 
@@ -13,6 +13,10 @@
     --font-Freight-Disp-Light: freight-display-pro, serif;
     --font-Freight-Disp-Light-Italic: freight-display-pro, serif;
     --font-Degular-Text: degular-text, sans-serif
+}
+
+.scroll-down .logo {
+    display: none;
 }
 
 p a,
@@ -39,6 +43,10 @@ p a:hover {
 footer p a {
     border-bottom: 0;
     padding-bottom: 0
+}
+
+.d-hero-secondary, .d-block-intro {
+    margin-top: 4rem !important;
 }
 
 #barraaceptacion {
@@ -844,7 +852,7 @@ footer .d-block-right .position-relative .langs {
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, .95);
+    /* background-color: rgba(255, 255, 255, .95); */
     height: 80px;
     z-index: 53;
     position: fixed;
@@ -2241,7 +2249,7 @@ footer .d-block-bottom li a {
 .d-slider-gastronomy {
     overflow: hidden;
     margin: 0;
-    /* padding: 75px 0; */
+    padding: 75px 0;
     background-color: var(--color-bg-grey-15)
 }
 
@@ -4449,9 +4457,9 @@ footer .d-block-bottom .d-block-right li a {
         padding: 0
     }
 
-    .navbar .logo img {
-        width: 125px
-    }
+    /* .navbar .logo img {
+        width: 25px
+    } */
 
     .navbar.scroll.scroll-up {
         background-color: var(--color-grey)

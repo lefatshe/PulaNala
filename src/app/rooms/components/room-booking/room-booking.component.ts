@@ -7,6 +7,9 @@ import { RoomsService } from '../../services/rooms.service';
 import { tap } from 'rxjs/internal/operators/tap';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { throwError } from 'rxjs/internal/observable/throwError';
+import { UserService } from 'src/app/shared/services/user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-room-booking',
@@ -18,12 +21,17 @@ export class RoomBookingComponent implements OnInit {
   booking: BookingModal | any;
   room: RoomModal;
   loader: boolean;
+  user: unknown
+
+  activeMenuTab = 'Login'
+  activeMenuUrl = './login'
 
   constructor(
     public route: ActivatedRoute,
     public fb: FormBuilder,
     public router: Router,
-    public bookingService: RoomsService
+    public bookingService: RoomsService,
+    private afAuth: AngularFireAuth,
   ) {
 
     this.route.queryParams
@@ -32,19 +40,23 @@ export class RoomBookingComponent implements OnInit {
       }
       );
 
+    this.afAuth.authState.subscribe(res => this.user = res)
+
   }
 
   ngOnInit() {
+    console.log(this.user)
     this.room = this.route.snapshot.data['details'];
   }
 
   complete() {
     console.log(this.booking)
     // this.loader = true
-    console.log(this.room.id  )
+    console.log(this.room.id)
 
-    
-    this.bookingService.createBooking(this.booking, this.room.id)
+
+
+    this.bookingService.createBooking(this.booking, this.room.id, this.user)
       .pipe(
         tap(room => {
           console.log(room)

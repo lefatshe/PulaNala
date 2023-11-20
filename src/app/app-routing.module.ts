@@ -7,6 +7,9 @@ import { LoginComponent } from './features/login/login.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomResolver } from './shared/resolvers/rooms.resolve';
 import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
+import { AddCustomerComponent } from './customer/components/add/add.component';
+import { CustomerResolver } from './shared/resolvers/customer.resolve';
+import { ViewCustomerComponent } from './customer/components/view/view.component';
 
 const routes: Routes = [
   {
@@ -31,6 +34,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: AddCustomerComponent
+  },
+  {
     path: 'rooms/:roomUrl',
     component: RoomsComponent,
     resolve: {
@@ -42,6 +49,13 @@ const routes: Routes = [
     component: RoomBookingComponent,
     resolve: {
       details: RoomResolver
+    }
+  },
+  {
+    path: 'info/:customerId',
+    component: ViewCustomerComponent,
+    resolve: {
+      details: CustomerResolver
     }
   },
   {

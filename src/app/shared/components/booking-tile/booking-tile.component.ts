@@ -25,7 +25,7 @@ export class BookingTileComponent {
   }
 
   today = Date.now();
-  momentDate = moment(this.today).format('D.M.YYYY')
+  momentDate = moment(this.today).format()
 
   form = this.fb.group({
     isPers: ['2', Validators.required],

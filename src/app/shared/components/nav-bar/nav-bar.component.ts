@@ -11,6 +11,7 @@ export class NavBarComponent implements OnInit {
   @Input() isLoggedIn: boolean
   @Input() pictureUrl: string
   @Input() displayName: string
+  @Input() phoneNumber: string
 
 
   @Output() signOutUser = new EventEmitter<string>();

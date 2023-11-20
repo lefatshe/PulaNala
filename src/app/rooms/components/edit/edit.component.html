@@ -38,11 +38,11 @@
                 </mat-form-field>
               </div> -->
   
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <mat-form-field appearance="outline">
                   <input placeholder="Short description" matInput formControlName="shortDescription">
                 </mat-form-field>
-              </div>
+              </div> -->
   
               <div class="form-group">
                 <mat-form-field appearance="outline">
@@ -51,11 +51,11 @@
                 </mat-form-field>
               </div>
   
-              <hr />
+              
   
               <mat-slide-toggle formControlName="promo">Room in promotion?</mat-slide-toggle>
   
-              <div class="form-group">
+              <div class="form-group" *ngIf="form.get('promo').value">
                 <mat-form-field appearance="outline">
                   <mat-label>Promotion start date</mat-label>
                   <input matInput [matDatepicker]="promoStartPicker" formControlName="promoStartAt">
@@ -64,6 +64,8 @@
                 </mat-form-field>
               </div>
 
+              <hr />
+              
               <button mat-raised-button color="accent" [disabled]="!form.valid" (click)="cancel()">
                 Cancel
               </button>

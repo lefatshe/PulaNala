@@ -26,13 +26,13 @@ export class EditComponent {
 
     this.form = this.fb.group({
       longDescription: [this.room.longDescription, Validators.required],
-      shortDescription: [this.room.shortDescription, Validators.required],
+      // shortDescription: [this.room.shortDescription, Validators.required],
       roomNumber: [this.room.roomNumber],
       title: [this.room.title, Validators.required],
       url: [this.room.url],
       promo: [this.room.promo],
       promoStartAt: [this.room.promoStartAt],
-      category: [this.room.category, Validators.required],
+      // category: [this.room.category, Validators.required],
       dateCreated: [this.room.dateCreated],
     })
   }

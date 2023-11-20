@@ -30,7 +30,7 @@ export class AddRoomComponent implements OnInit {
 
     form = this.fb.group({
         longDescription: ['', Validators.required],
-        shortDescription: ['', Validators.required],
+        // shortDescription: ['', Validators.required],
         roomNumber: [''],
         title: ['', Validators.required],
         url: [''],
@@ -38,7 +38,7 @@ export class AddRoomComponent implements OnInit {
         promoStartAt: [null],
         // category: ['STANDARDR', Validators.required],
         dateCreated: [null],
-        imageUrl: ['', Validators.required],
+        imageUrl: [''],
     });
 
     constructor(
@@ -69,7 +69,7 @@ export class AddRoomComponent implements OnInit {
         const newRoom: Partial<RoomModal> = {
             id: this.roomId,
             longDescription: val.longDescription,
-            shortDescription: val.shortDescription,
+            // shortDescription: val.shortDescription,
             roomNumber: randomNumber.toString(),
             title: val.title,
             url: val.title.replace(/\s+/g, '-').toLowerCase(),

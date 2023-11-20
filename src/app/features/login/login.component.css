@@ -8,3 +8,7 @@
 button.firebaseui-idp-button.mdl-button.mdl-js-button.mdl-button--raised.firebaseui-idp-password.firebaseui-id-idp-button {
   background-color: #9A8D7A !important;
 }
+
+button.firebaseui-id-country-selector.firebaseui-country-selector.mdl-button.mdl-js-button {
+  display: none;
+}

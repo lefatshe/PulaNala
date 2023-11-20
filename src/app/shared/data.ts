@@ -25,3 +25,16 @@ export const Category = [
         label: 'FAMILY'
     }
 ]
+
+export const Sex = [
+    {
+        id: 0,
+        value: 'Male',
+        label: 'Male'
+    },
+    {
+        id: 1,
+        value: 'Female',
+        label: 'Female'
+    }
+]

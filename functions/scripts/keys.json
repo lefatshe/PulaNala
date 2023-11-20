@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "pula-nala-web-portal",
+    "private_key_id": "f8f87a9f21991c1f8d705a70838b8736ae84bf2b",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDMZIWEF3Q299Es\nNlRqlytAvEFFpiAZHXS0xoJBgNzvdhRrcdhpBf9H3L6FQat9b/BKC9h+GB5FuWaI\nUpvl4slg2+2Zc1UG+2YKAEEyKbLx1LKkZFqwOKfJEnQ+9vjCT4a89/nw3Eiw87fJ\n8PviIePMMeyOlLlGIER5VCguvAHd+dKR8t88MwQQJISSVv1ZPwMZA2xujoSExVxD\nmu/Ma7mIrOWWj0xPKm9pZjBZKfjgHEz/uhotrzjplYsr4Cjk3yAX0xDbBC2Vxo3f\nEhMu+01eDNp+y1hHDA8G2KzfPxvzlWT3c7QydMDxoINVbYi6VlR8ByUdGcahULmG\nojRNMBu/AgMBAAECggEAAUjObVE9FI1ZHfyCFPYPOlsUfpdifes+olYvAlyzcWPI\nvBDH6d0KSM19Jaw5zid9FzyyJxSyuABywao3OuoXwYk67ysXiTGHkh+EnrKUDSCn\ni2XqtfnH1Xkitt8+xUXSVG9V0urSIB6Kn0ppjXcQuJCbFR2fzm4seqYJ50VHg7ln\ny1rCfAIB0iKzWsCBL/1RB0H+vymHTdLp5nUD8QApdkJ3LxOFZwhAVHXrJb+rbcs2\nhbtMvZmd1oucw5b1BXo8FJi2WUxhy3Fo47byp52yEuiRXkfNruu8Ehdru5tJCrQG\ndIYOjMeLrtQGs3lXh67diOFwKMMwTo1GS0GQPXRUnQKBgQDtcQqtDkwu7IolVCax\nx791XqMd2IuI8QW2QjDWVytf2uuhaPvo1jncs84EVFuzOK3h0Kdg/rG7NPSkW5un\nPHuzIUjFTXIxeYQlAIspaZ6h98Tqy/C5LbigAws7h0n5oSYFnaLF1mmhXCHnJ15W\nEJBJK9IYut/k3OOpjJy9kq03nQKBgQDcXjSmkKOzlkbgDKalZQz1faamV63yWD/f\nK6IA/37YbrTehMjcPStmpoV02beuG3sRmk7UY7VsMyg4bgTt9lhN4kJt8TH94HUs\nzndZuYpydRyP9hahIpj0qmZCzzEhgBTu6ZuiUGFycLCHJg4ozjPvFZXkKkWmQQIj\nOj1OuigYCwKBgBgUHJcMGiGwDxpV/E6PCRVn8Xa3XP8YIhIniDhUQqvH0Zlewh0M\njHWbLks2Gs6D8u4xcKffbDql1iFMwO4mrgyuVWjcv7XQstvlwDcE5Pdb3vZIlDLT\nNiPT6zGwOIo+E1MCd11ErxWT+EQus9xadadV8EpduRLGa7fn8IUw+KvpAoGABxFm\ncuk0tu/c+hatyaRCFCWhkLhDNgCqm8fUfF+1e8+hMXnkz1uO5s30fdj10TnEar4e\nRSWljgDeC2FL+y3piyX0p34S8meemn9MyK3wyNcEwYFNHIH1kfNdMEtg8ggfo8IO\nYdheJ8OBhfQshBaJB+QTWKwaa8it/t9BVCMYYh0CgYAwLGDx+iTnqkkxCgQwFpMG\ndjH5AYDa8K40UMSsYsYWV9icwQcOiYhCV3C7UfOGuLgdPy3EouZ8EfYF1hSssQuf\nf2ukUqx4Go8Mh8855fKURpjFaRUO5Sa6nRhQQmWODgAsr137k40nwzAYw4DBng3E\nh+2iwT0a/Tg9LQzm7Ug6JA==\n-----END PRIVATE KEY-----\n",
+    "client_email": "local-admin@pula-nala-web-portal.iam.gserviceaccount.com",
+    "client_id": "108882742480107989356",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/local-admin%40pula-nala-web-portal.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

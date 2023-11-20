@@ -12,6 +12,9 @@ export const environment = {
     storageBucket: 'pula-nala-web-portal.appspot.com',
     messagingSenderId: '620045127664',
     appId: '1:620045127664:web:7ca9bc51bd58fab169d735'
+  },
+  api: {
+    createUser: "http://localhost:4200/pula-nala-web-portal.firebaseapp.com/us-central1/createUser"
   }
 };
 

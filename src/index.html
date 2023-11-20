@@ -127,12 +127,7 @@
 
     .d-hero-secondary .title-room {
       font-family: var(--font-Freight-Disp-Light);
-      font-size: 30px;
-      color: var(--color-black);
-      letter-spacing: 0;
-      line-height: 40px;
-      text-shadow: 0 0 4px rgba(0, 0, 0, .15);
-      margin-bottom: 0
+      color: var(--color-gold);
     }
 
     .d-hero-secondary img {
@@ -398,6 +393,20 @@
       window.addEventListener("resize", lazyloadMap);
       window.addEventListener("orientationChange", lazyloadMap);
     });
+
+  </script>
+
+  <script>
+    if (window.scroll) {
+      window.addEventListener('scroll', this.onScroll.bind(this), false);
+    }
+
+    function onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const divLogo = document.querySelector('.logo');
+      const logo = divLogo.querySelector('img');
+      scrollTop > 100 ? logo.classList.add('is-show') : logo.classList.remove('is-show');
+    }
 
   </script>
 

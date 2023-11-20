@@ -4,8 +4,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function isAdmin() {
-      return isAuthenticated() && 'admin' in request.auth.token &&
-      request.auth.token.admin == true
+      return isAuthenticated() && 'admin' in request.auth.token && request.auth.token.admin == true
     }
 
     function isAuthenticated() {
@@ -13,33 +12,17 @@ service cloud.firestore {
     }
 
     function isNonEmptyString(fieldName) {
-      request.resource.data[fieldName] is string &&
-      request..resource.data[fieldName].size() > 0;
+      request.resource.data[fieldName] is string && request..resource.data[fieldName].size() > 0;
     }
 
     function isKnownUser() {
-      return isAuthenticated() &&
-      exists(/databases/$(database)/documents/users/$(request.auth.uid));
+      return isAuthenticated() && exists(/databases/$(database)/documents/users/$(request.auth.uid));
     }
 
     function isValidCourse() {
-      request.resource.data.seqNo is number &&
-      request.resource.data.seqNo >== &&
-      isNonEmptyString("url")
+      request.resource.data.seqNo is number && request.resource.data.seqNo >= 0 && isNonEmptyString("url")
     }
 
-    match /courses/{courseId} {
-      allow read: if isKnownUser();
-      
-      allow create, update: if isValidCourse() && isAdmin();
-      allow delete: if isAdmin();
-
-      match /lessons/{lessonId} {
-        allow read: if isKnownUser()
-      }
-
-    }
-    
     match /rooms/{roomId} {
       allow read: if isKnownUser();
       
@@ -51,6 +34,16 @@ service cloud.firestore {
       }
 
     }
+
+    match /{path=**}/bookings/{bookingId} {
+    
+      match /rooms/{roomId} {
+        allow read: if isKnownUser()
+      }
+
+    }
+
+    
     
   }
 

@@ -7,15 +7,13 @@
                     <!-- <h2 class="title t-italic">Oh là là!</h2> -->
                     <h2 class="title">Rooms</h2>
 
-                    <p>The bounty of the Mediterranean is on display in Pula Nala Lodge. Treat your palate to the
-                        same luxury as your eyes with our seasonal menus made using local, seasonal ingredients and
-                        flavours.</p>
+                    <p>With a range of our available rooms to choose for, here you can check from our selection.</p>
 
-                    <a href="" class="underline" title="LEARN MORE">
+                    <!-- <a href="" class="underline" title="LEARN MORE">
                         <span>SEE MORE</span><svg viewBox="0 0 13 20">
                             <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                         </svg>
-                    </a>
+                    </a> -->
 
                 </div>
             </div>
@@ -26,10 +24,8 @@
                 <!-- carousel-cell-0 -->
                 <div class="carousel-cell">
                     <picture>
-                        <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
-                            type="image/webp" srcset="">
-                        <img width="537" height="642"
-                            data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
                             class="lazy img-fluid w-100" src="">
                     </picture>
 
@@ -39,21 +35,21 @@
                         <h2 class="title t-italic"><a class="">{{listRooms[0]?.title}}</a></h2>
                         <div class="p-text">{{listRooms[0]?.longDescription}}</div>
 
-                        <!-- <a class="underline">
-                            <span>Read more</span><svg viewBox="0 0 13 20" width="13" height="20">
+                        <a [routerLink]="['/rooms', listRooms[0]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
                                 <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                             </svg>
-                        </a> -->
+                        </a>
                     </div>
+
+
                 </div>
 
                 <!-- carousel-cell-1 -->
                 <div class="carousel-cell">
                     <picture>
-                        <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
-                            type="image/webp" srcset="">
-                        <img width="537" height="642"
-                            data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
                             class="lazy img-fluid w-100" src="">
                     </picture>
 
@@ -62,16 +58,22 @@
                         <p class="p-section">{{listRooms[1]?.category}}</p>
                         <h2 class="title t-italic"><a class="">{{listRooms[1]?.title}}</a></h2>
                         <div class="p-text">{{listRooms[1]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[1]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
                     </div>
+
+
                 </div>
 
                 <!-- carousel-cell-2 -->
                 <div class="carousel-cell">
                     <picture>
-                        <source data-srcset="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
-                            type="image/webp" srcset="">
-                        <img width="537" height="642"
-                            data-src="../../../assets/scheduling/Amar_barcelona_restaurant_H0_1.thigh.jpg"
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
                             class="lazy img-fluid w-100" src="">
                     </picture>
 
@@ -80,11 +82,97 @@
                         <p class="p-section">{{listRooms[2]?.category}}</p>
                         <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
                         <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
                     </div>
+
+
                 </div>
+
+                <!-- carousel-cell-3 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[3]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[3]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[3]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[3]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[3]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <!-- carousel-cell-2 -->
+                <div class="carousel-cell">
+                    <picture>
+                        <source data-srcset="../../../assets/img/room_image.jpg" type="image/webp" srcset="">
+                        <img width="537" height="642" data-src="../../../assets/img/room_image.jpg"
+                            class="lazy img-fluid w-100" src="">
+                    </picture>
+
+                    <p class="counter"><span>{{listRooms[2]?.seqNo}}</span>/{{listRooms?.length}}</p>
+                    <div class="d-block text-center">
+                        <p class="p-section">{{listRooms[2]?.category}}</p>
+                        <h2 class="title t-italic"><a class="">{{listRooms[2]?.title}}</a></h2>
+                        <div class="p-text">{{listRooms[2]?.longDescription}}</div>
+
+                        <a [routerLink]="['/rooms', listRooms[2]?.url]" class="underline" title="LEARN MORE">
+                            <span>BOOK NOW</span><svg viewBox="0 0 13 20">
+                                <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+                
+                
+
+                
             </div>
 
-            
+
         </div>
     </div>
 </div>

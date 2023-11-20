@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-12 text-center d-hero-content">
                 <div>
-                    <h1 class="title">{{room.title}}</h1>
-                    <h2 class="title-room"><span class="t-italic">{{room.shortDescription}}</span></h2>
+                    <h1 class="title">{{room?.title}}</h1>
+                    <h2 class="title-room"><span class="t-italic">{{room?.longDescription}}</span></h2>
 
                     <picture>
-                        <img class="lazy" src="../../assets/room/Superior-Room-Hotel-El-Palace-Barcelona-35.tmedium.png"
+                        <img class="lazy" src="../../assets/img/room_image.jpg"
                             alt="Classic Room" title="Classic Room">
                     </picture>
 
@@ -22,7 +22,7 @@
         <div class="col-12 text-center text-color-white">
             <h2 class="title">.</h2>
             <h2 class="title">.</h2>
-            <div class="mt-4">{{room.longDescription}}</div>
+            <div class="mt-4">{{room?.longDescription}}</div>
         </div>
     </div>
 

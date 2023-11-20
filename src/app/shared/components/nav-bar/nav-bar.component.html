@@ -3,13 +3,14 @@
         <div class="container-fluid">
 
             <ul id="menu-toggle" class="nav navbar-nav">
-                <li *ngIf="isLoggedIn" [routerLink]="activeMenuUrl" (click)="updateActiveState(activeMenuTab)">
+                <!-- <li *ngIf="isLoggedIn &&" [routerLink]="activeMenuUrl" (click)="updateActiveState(activeMenuTab)">
                     <a>{{activeMenuTab}}</a>
-                </li>
+                </li> -->
                 <li>
+                    {{phoneNumber}}
                     <img [src]="pictureUrl" class="user-avatar" width="32">
                 </li>
-                <hr />
+                <!-- <hr /> -->
                 <li class="position-relative">
                     <a href="javascript: void(0)">
                         <small>{{displayName}}</small>
@@ -23,6 +24,16 @@
                                 </span> -->
                             </button>
                         </li>
+
+
+                        <li *ngIf="isLoggedOut">
+                            <button type="button" class="btn btn-primary d-block">
+                                Manage booking
+                                <!-- <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                  <span class="visually-hidden">0</span>
+                                </span> -->
+                            </button>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -31,11 +42,12 @@
             <ul class="nav navbar-nav logo">
                 <li>
                     <a href="">
-                        <img height="auto" widthx="220" class="lazy" data-src="../../../assets/logo/logo-web-gold.svg"
+                        <img  height="auto" widthx="120" class="lazy logo" data-src="../../../../assets/logo/logi-web-v2.svg"
                             src="" alt="Pula Nala Lodge" title="Pula Nala Lodge">
                     </a>
                 </li>
             </ul>
+            
 
             <ul id="menu-toggle" class="nav navbar-nav">
 
@@ -64,9 +76,9 @@
                         <li class="block-legal">
                             <a *ngIf="isLoggedOut" (click)="logout()" class="burger-icon">LogOut</a>
                             <hr>
-                            <a *ngIf="isLoggedIn" routerLink="login" class="burger-icon">LogIn</a>
+                            <a *ngIf="isLoggedIn" href="./login" class="burger-icon">LogIn</a>
                             <hr>
-                            <a *ngIf="isLoggedIn" routerLink="login">Register</a>
+                            <a *ngIf="isLoggedIn" href="./register">Register</a>
                             <hr>
                         </li>
                     </ul>
