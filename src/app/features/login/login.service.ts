@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class loginService {
 
   private number: LoginModal = { phoneNumber: 'Principles' }
+  private customer: CustomerModal
 
   constructor(private db: AngularFirestore) {
 
@@ -19,13 +20,26 @@ export class loginService {
     return this.number;
   }
 
+  retrievCustomer() {
+    return this.customer
+  }
+
+  set customerObj(obj){
+    this.customer = obj
+    console.log("this.customer", this.customer)
+  }
+
+  removeCustomer() {
+    this.customer = null
+  }
+
   createUser(number: string) {
     console.log(number)
     this.getCustomerByNumber(number)
   }
 
-  getCustomerByNumber(number: string): Observable<CustomerModal>  {
-    return this.db.collection('rooms',
+  getCustomerByNumber(number: string): Observable<CustomerModal> {
+    return this.db.collection('customer',
       ref => ref.where('number', '==', number))
       .get()
       .pipe(
@@ -35,4 +49,9 @@ export class loginService {
         })
       )
   }
+
+  setThisCustomer(customer: CustomerModal) {
+    this.customer = customer
+  }
+
 }
