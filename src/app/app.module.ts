@@ -42,20 +42,21 @@ import { CarouselCellsComponent } from './shared/components/carousel-cells/carou
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CreateComponent } from './features/booking/components/create/create.component';
 import { AdminToolBarComponent } from './shared/components/admin-tool-bar/admin-tool-bar.component';
-import { RoomsComponent } from './rooms/rooms.component';
-import { AddRoomComponent } from './rooms/components/add/add.component';
-import { EditComponent } from './rooms/components/edit/edit.component';
-import { ViewComponent } from './rooms/components/view/view.component';
 import { ManageButtonComponent } from './shared/components/manage-button/manage-button.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserService } from './shared/services/user.service';
 import { ReadMoreLinkComponent } from './shared/read-more-link/read-more-link.component';
-import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { ButtonHomeComponent } from './shared/components/btn/button-home/button-home.component';
 import { CustomerComponent } from './features/customer/customer.component';
 import { AddCustomerComponent } from './features/customer/components/add/add.component';
+import {RoomsComponent} from './features/rooms/rooms.component';
+import {AddRoomComponent} from './features/rooms/components/add/add.component';
+import {EditComponent} from './features/rooms/components/edit/edit.component';
+import {ViewComponent} from './features/rooms/components/view/view.component';
+import {RoomBookingComponent} from './features/rooms/components/room-booking/room-booking.component';
+import {ViewCustomerComponent} from './features/customer/components/view/view.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import { AddCustomerComponent } from './features/customer/components/add/add.com
     ReadMoreLinkComponent,
     RoomBookingComponent,
     ButtonHomeComponent,
-    
+    ViewCustomerComponent,
 
     // Customer
     CustomerComponent,

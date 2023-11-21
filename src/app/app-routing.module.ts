@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddRoomComponent } from './rooms/components/add/add.component';
-import { ViewComponent } from './rooms/components/view/view.component';
+
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
-import { RoomsComponent } from './rooms/rooms.component';
+
 import { RoomResolver } from './shared/resolvers/rooms.resolve';
-import { RoomBookingComponent } from './rooms/components/room-booking/room-booking.component';
+
 import { AddCustomerComponent } from './features/customer/components/add/add.component';
 import { CustomerResolver } from './shared/resolvers/customer.resolve';
 import { ViewCustomerComponent } from './features/customer/components/view/view.component';
+import {AddRoomComponent} from './features/rooms/components/add/add.component';
+import {ViewComponent} from './features/rooms/components/view/view.component';
+import {RoomsComponent} from './features/rooms/rooms.component';
+import {RoomBookingComponent} from './features/rooms/components/room-booking/room-booking.component';
 
 const routes: Routes = [
   {

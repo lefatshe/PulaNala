@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { FormBuilder } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RoomsService } from "src/app/rooms/services/rooms.service";
-import { CustomerModal } from "../../models/customer.model";
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerModal } from '../../models/customer.model';
+import {RoomsService} from '../../../rooms/services/rooms.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { CustomerModal } from "../../models/customer.model";
     templateUrl: 'view.component.html'
 })
 export class ViewCustomerComponent {
-    customer: CustomerModal | unknown
+    customer: CustomerModal | unknown;
 
     constructor(
         public route: ActivatedRoute,
@@ -23,16 +23,16 @@ export class ViewCustomerComponent {
 
         this.route.queryParams
             .subscribe(params => {
-                this.customer = params
+                this.customer = params;
             }
             );
 
-       
+
 
     }
 
     ngOnInit() {
-        console.log(this.route.snapshot.data['details'])
-        console.log(this.customer)
+        console.log(this.route.snapshot.data.details);
+        console.log(this.customer);
     }
 }
