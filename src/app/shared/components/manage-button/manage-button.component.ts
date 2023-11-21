@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { tap } from 'rxjs/internal/operators/tap';
-import { EditComponent } from 'src/app/rooms/components/edit/edit.component';
-import { RoomModal } from 'src/app/rooms/models/room.model';
-import { RoomsService } from 'src/app/rooms/services/rooms.service';
+import {RoomModal} from '../../../features/rooms/models/room.model';
+import {RoomsService} from '../../../features/rooms/services/rooms.service';
+import {EditComponent} from '../../../features/rooms/components/edit/edit.component';
+
 
 @Component({
   selector: 'app-manage-button',
@@ -62,8 +63,7 @@ export class ManageButtonComponent implements OnInit {
     this.dialog.open(EditComponent, dialogConfig)
       .afterClosed()
       .subscribe(val => {
-        console.log(val)
-        this.router.navigateByUrl('/manage-room')
+        this.router.navigateByUrl('/manage-room');
         if (val) {
           this.roomEdited.emit();
         }

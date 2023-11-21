@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { CustomersService } from 'src/app/features/customer/services/customer.service';
+import { loginService } from 'src/app/features/login/login.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,15 +18,16 @@ export class NavBarComponent implements OnInit {
 
   @Output() signOutUser = new EventEmitter<string>();
 
+  constructor(private loginService: loginService) {
+
+  }
 
   active: boolean
   activeMenuTab = 'Login'
   activeMenuUrl = './login'
 
-
-  constructor() { }
-
   ngOnInit(): void {
+    console.log(this.loginService.retrievCustomer())
   }
 
   logout() {

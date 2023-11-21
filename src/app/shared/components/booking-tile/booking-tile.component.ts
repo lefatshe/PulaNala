@@ -1,81 +1,81 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
-import { Observable } from 'rxjs/internal/Observable';
-import { RoomBookingComponent } from 'src/app/rooms/components/room-booking/room-booking.component';
-import { RoomModal } from 'src/app/rooms/models/room.model';
-import { RoomsService } from 'src/app/rooms/services/rooms.service';
+import {Observable} from 'rxjs/internal/Observable';
+import {RoomModal} from '../../../features/rooms/models/room.model';
+import {RoomsService} from '../../../features/rooms/services/rooms.service';
+
 
 @Component({
-  selector: 'app-booking-tile',
-  templateUrl: './booking-tile.component.html',
-  styleUrls: ['./booking-tile.component.css']
+    selector: 'app-booking-tile',
+    templateUrl: './booking-tile.component.html',
+    styleUrls: ['./booking-tile.component.css']
 })
 export class BookingTileComponent {
-  room: RoomModal
-  listRooms$: Observable<RoomModal[]>;
-  
-  isPers: boolean
-  isToday: boolean = true
-  isTime: boolean
 
-  @HostListener("click", ["$event"]) click($event: Event) {
-    $event.preventDefault();
-  }
+    constructor(private route: ActivatedRoute,
+                public fb: FormBuilder,
+                private router: Router,
+                private bookingService: RoomsService) {
 
-  today = Date.now();
-  momentDate = moment(this.today).format()
+        this.bookingService.getAllRooms('STANDARD')
+            .subscribe(res => {
+                this.room = res[0];
+            });
 
-  form = this.fb.group({
-    isPers: ['2', Validators.required],
-    isToday: [this.momentDate, Validators.required],
-    isTime: ['15:00 - 16:00'],
-    isDaysNo: ['2', Validators.required],
-    isRoom: [null],
-    promo: ['']
-  });
+    }
 
-  constructor(private route: ActivatedRoute,
-    public fb: FormBuilder,
-    private router: Router,
-    private bookingService: RoomsService) {
+    room: RoomModal;
+    listRooms$: Observable<RoomModal[]>;
 
-    this.bookingService.getAllRooms('STANDARD')
-    .subscribe(res => {
-      console.log(res)
-      this.room = res[0]
-    })
+    isPers: boolean;
+    isToday = true;
+    isTime: boolean;
 
-  }
+    today = Date.now();
+    momentDate = moment(this.today).format();
 
-  bookNow() {
-    console.log(this.form.value)
+    form = this.fb.group({
+        isPers: ['2', Validators.required],
+        isToday: [this.momentDate, Validators.required],
+        isTime: ['15:00 - 16:00'],
+        isDaysNo: ['2', Validators.required],
+        isRoom: [null],
+        promo: ['']
+    });
 
-    this.onCreate()
-  }
+    @HostListener('click', ['$event']) click($event: Event) {
+        $event.preventDefault();
+    }
 
-  onCreate() {
-    const form = this.form.value
+    bookNow() {
+        console.log(this.form.value);
 
-    console.log(this.room)
-    const urlPath = `booking/${this.room.url}`
+        this.onCreate();
+    }
 
-    // form.isToday = moment(form.isToday).format('D.M.YYYY')
+    onCreate() {
+        const form = this.form.value;
 
-    this.router.navigate([urlPath],
-      {
-        queryParams: {
-          isDaysNo: form.isDaysNo,
-          isPers: form.isPers,
-          isTime: form.isTime,
-          isToday: form.isToday,
-          isRoomRef: this.room.id
-        }
-      }
-    );
+        console.log(this.room);
+        const urlPath = `booking/${this.room.url}`;
 
-  }
+        // form.isToday = moment(form.isToday).format('D.M.YYYY')
+
+        this.router.navigate([urlPath],
+            {
+                queryParams: {
+                    isDaysNo: form.isDaysNo,
+                    isPers: form.isPers,
+                    isTime: form.isTime,
+                    isToday: form.isToday,
+                    isRoomRef: this.room.id
+                }
+            }
+        );
+
+    }
 
 
 }

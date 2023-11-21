@@ -3,10 +3,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebaseui from 'firebaseui';
 import * as firebase from 'firebase';
-import { CustomersService } from 'src/app/customer/services/customer.service';
+import { CustomersService } from 'src/app/features/customer/services/customer.service';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { loginService } from './login.service';
+import { CustomerModal } from 'src/app/features/customer/models/customer.model';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ import { loginService } from './login.service';
 export class LoginComponent implements OnInit, OnDestroy {
 
   ui: firebaseui.auth.AuthUI
+  Customer$: Observable<CustomerModal[]>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -71,27 +73,28 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLoginSuccessful(result) {
-    console.log('login result ', result.user)
-    this.service.createUser(result.user.phonenumber)
-    // this.router.navigateByUrl("")
-    // this.form.reset()
-    // this.router.navigateByUrl('/home');
-    // this.customer.retrieveCustomerByPhone(result.phoneNumber)
-    //   .pipe(
-    //     tap(res => {
-    //       console.log(res)
-    //       // this.addedItem = room
-    //       // this.loader = false
-    //       // this.form.reset()
-    //       // this.router.navigateByUrl('/manage-room');
-    //     }),
-    //     catchError(err => {
-    //       console.log(err);
-    //       alert('could not create');
-    //       return throwError(err);
-    //     }),
-    //   )
-    //   .subscribe();
+    const customerNumber = result.user.phoneNumber
+    console.log('login result ', customerNumber)
+    this.login(customerNumber)
+  }
+
+  login(number: string) {
+     this.service.getCustomerByNumber(number)
+      .pipe(
+        tap(res => {
+          this.service.setThisCustomer(res)
+          this.router.navigateByUrl('')
+          .then(() => {
+            window.location.reload();
+          });
+        }),
+        catchError(err => {
+          console.log(err);
+          alert('could not create');
+          return throwError(err);
+        }),
+      )
+      .subscribe();
 
   }
 

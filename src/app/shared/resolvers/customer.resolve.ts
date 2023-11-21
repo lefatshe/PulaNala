@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { CustomerModal } from 'src/app/customer/models/customer.model';
-import { CustomersService } from 'src/app/customer/services/customer.service';
+import { CustomerModal } from 'src/app/features/customer/models/customer.model';
+import { CustomersService } from 'src/app/features/customer/services/customer.service';
 
 @Injectable({
     providedIn: 'root'
