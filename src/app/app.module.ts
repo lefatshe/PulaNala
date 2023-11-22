@@ -57,6 +57,8 @@ import {EditComponent} from './features/rooms/components/edit/edit.component';
 import {ViewComponent} from './features/rooms/components/view/view.component';
 import {RoomBookingComponent} from './features/rooms/components/room-booking/room-booking.component';
 import {ViewCustomerComponent} from './features/customer/components/view/view.component';
+import {IdleComponent} from './shared/services/idle.component';
+import {ModalPopupService} from './shared/services/modal-po-up.service';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import {ViewCustomerComponent} from './features/customer/components/view/view.co
 
     // Customer
     CustomerComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    IdleComponent
 
   ],
   imports: [
@@ -129,6 +132,7 @@ import {ViewCustomerComponent} from './features/customer/components/view/view.co
     { provide: USE_FIRESTORE_EMULATOR, useValue: environment.useEmulators ? ['localhost', 8181] : undefined },
     { provide: USE_FUNCTIONS_EMULATOR, useValue: environment.useEmulators ? ['localhost', 5001] : undefined },
     UserService,
+    ModalPopupService
   ],
   bootstrap: [AppComponent]
 })
