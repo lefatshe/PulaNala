@@ -1,12 +1,29 @@
-<h2 mat-dialog-title>Warning!</h2>
+<h1 mat-dialog-title></h1>
 <mat-dialog-content>
-    We woul like to sign you up as a new user
+    <div class="thn--tool-steps__step thn--tool-steps__step--main"
+        data-vertical-center="true">
+        <div class="thn--tool-text thn--tool-steps__step-component" 
+            style="font-size: 59px; line-height: 60px;">
+            <p><em>Say hello to</em></p>
+            <p><strong>Pula Nala | Lodge</strong></p>
+        </div>
+        <div class="thn--tool-text thn--tool-steps__step-component" 
+            data-module-id="01HF98KRWVWYQF7AGH2BS7CS9Z" has-extra-steps="" style="font-size: 18px; line-height: 22px;">
+            <p>Save up to 30% off</p>
+            <p>Get exclusive discounts by booking on our website</p>
+        </div>
+        <div class="thn--tool-text thn--tool-steps__step-component" 
+             style="font-size: 13px; line-height: 22px;">
+            <p><em>*valid for bookings made before December 17th.</em></p>
+        </div>
+
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
 
-    <button tabindex="-1" mat-flat-button class="btn-margin" (click)="onClose(false)" color="primary">Cancel</button>
-    <button tabindex="-1" routerLink='register' mat-flat-button class="btn-margin" (click)="onClose(true)"  color="primary">
-    Register
+    <button tabindex="-1" mat-flat-button class="btn-margin" (click)="cancel()" color="primary">Cancel</button>
+    <button tabindex="-1" routerLink='register' mat-flat-button class="btn-margin" (click)="onClose(true)"
+        color="primary">
+        Register
     </button>
 </mat-dialog-actions>
-

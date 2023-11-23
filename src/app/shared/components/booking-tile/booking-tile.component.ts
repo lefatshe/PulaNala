@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import {Observable} from 'rxjs/internal/Observable';
 import {RoomModal} from '../../../features/rooms/models/room.model';
 import {RoomsService} from '../../../features/rooms/services/rooms.service';
+import { loginService } from 'src/app/features/login/login.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class BookingTileComponent {
     constructor(private route: ActivatedRoute,
                 public fb: FormBuilder,
                 private router: Router,
+                private log: loginService,
                 private bookingService: RoomsService) {
 
         this.bookingService.getAllRooms('STANDARD')
@@ -38,8 +40,8 @@ export class BookingTileComponent {
 
     form = this.fb.group({
         isPers: ['2', Validators.required],
-        isToday: [this.momentDate, Validators.required],
-        isTime: ['15:00 - 16:00'],
+        isToday: [null, Validators.required],
+        isTime: ['15:00 - 16:00', Validators.required],
         isDaysNo: ['2', Validators.required],
         isRoom: [null],
         promo: ['']
@@ -49,11 +51,7 @@ export class BookingTileComponent {
         $event.preventDefault();
     }
 
-    bookNow() {
-        console.log(this.form.value);
 
-        this.onCreate();
-    }
 
     onCreate() {
         const form = this.form.value;
@@ -70,7 +68,8 @@ export class BookingTileComponent {
                     isPers: form.isPers,
                     isTime: form.isTime,
                     isToday: form.isToday,
-                    isRoomRef: this.room.id
+                    isRoomRef: this.room.id,
+                    isCustomerref: this.log?.customer?.id
                 }
             }
         );

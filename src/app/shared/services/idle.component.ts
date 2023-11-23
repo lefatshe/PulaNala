@@ -21,4 +21,9 @@ export class IdleComponent implements OnInit {
         // this.intervalPart.unsubscribe();
         this.dialogRef.close(response);
     }
+
+    cancel(){
+        this.onClose(true);
+        sessionStorage.removeItem('home-sign-up-pop-up')
+    }
 }

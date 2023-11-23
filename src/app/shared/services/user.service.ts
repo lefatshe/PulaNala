@@ -13,6 +13,7 @@ export class UserService {
     isLoggedOutIn$: Observable<boolean>;
     pictureUrl$: Observable<string>;
     displayName$: Observable<string>;
+    phoneNumber$: Observable<string>;
 
     constructor(
         private afAuth: AngularFireAuth,
@@ -22,9 +23,9 @@ export class UserService {
         //     console.log('jwt', jwt)
         // })
 
-        // afAuth.authState.subscribe((auth) => {
-        //     console.log('auth', auth)
-        // })
+        afAuth.authState.subscribe((auth) => {
+            console.log('auth', auth)
+        })
 
         this.isLoggedIn$ = afAuth.authState.pipe(
             map(user => !!user)
@@ -40,6 +41,10 @@ export class UserService {
 
         this.displayName$ = afAuth.authState.pipe(
             map(user => user ? user.displayName : null)
+        )
+
+        this.phoneNumber$ = afAuth.authState.pipe(
+            map(user => user ? user.phoneNumber : null)
         )
 
     }

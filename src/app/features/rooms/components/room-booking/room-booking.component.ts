@@ -10,6 +10,8 @@ import { throwError } from 'rxjs/internal/observable/throwError';
 import { UserService } from 'src/app/shared/services/user.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
+import { logging } from 'protractor';
+import { loginService } from 'src/app/features/login/login.service';
 
 @Component({
   selector: 'app-room-booking',
@@ -32,6 +34,7 @@ export class RoomBookingComponent implements OnInit {
     public router: Router,
     public bookingService: RoomsService,
     private afAuth: AngularFireAuth,
+    public log: loginService
   ) {
 
     this.route.queryParams
@@ -45,18 +48,20 @@ export class RoomBookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user)
+    console.log(this.booking)
     this.room = this.route.snapshot.data['details'];
+    // this.booking.isCustomerref = this.log?.customer?.id || null;
   }
 
   complete() {
+
     console.log(this.booking)
-    // this.loader = true
-    console.log(this.room.id)
 
+    window.scrollTo({ top: 100, left: 100, behavior: 'smooth' });
 
-
-    this.bookingService.createBooking(this.booking, this.room.id, this.user)
+    this.loader = true
+    
+    this.bookingService.createBooking(this.booking, this.room.id, this.log?.customer)
       .pipe(
         tap(room => {
           console.log(room)

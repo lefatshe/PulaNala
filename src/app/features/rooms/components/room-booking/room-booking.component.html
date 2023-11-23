@@ -4,9 +4,7 @@
       <div class="col-12 text-center d-block-intro">
         <div class="container">
 
-          <div class="row justify-content-center" *ngIf="loader else SHOWCONTENT">
-            <mat-spinner></mat-spinner>
-          </div>
+          
 
           <ng-template #SHOWCONTENT>
             <main>
@@ -18,32 +16,34 @@
               <div class="row">
                 <div class="col-md-5 col-lg-4">
                   <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Reserve </span>
+                    <span class="text-primary">Reservation details </span>
                   </h4>
 
 
 
                   <ul class="list-group mb-3">
 
+
+
                     <li class="list-group-item d-flex justify-content-between">
                       <div>
                         <h6 class="my-0">No person</h6>
                       </div>
-                      <span class="">{{booking.isPers}} people(s)</span>
+                      <span class="">{{booking.isPers}} adult (s)</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between">
                       <div>
                         <h6 class="my-0">Date</h6>
                       </div>
-                      <span class="">{{booking.isToday  | date }}</span>
+                      <span class="">{{booking.isToday | date }}</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between">
                       <div>
                         <h6 class="my-0">No days</h6>
                       </div>
-                      <span class="">{{booking.isDaysNo}}</span>
+                      <span class="">{{booking.isDaysNo}} day (s)</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between">
@@ -55,37 +55,87 @@
 
                     <li class="list-group-item d-flex justify-content-between">
                       <div>
-                        <h6 class="my-0">
-                          <strong>Promo code</strong></h6>
+                        <h6 class="my-0">Per night / incl breakfast</h6>
                       </div>
-                      <span class="text-danger">#</span>
+                      <span class="">R 950.00</span>
                     </li>
-
-
 
 
                   </ul>
 
+                  <div>
 
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                      <span class="text-primary">Customer details </span>
+                    </h4>
+
+                    <ul class="list-group mb-3">
+
+                      <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                          <h6 class="my-0">Name</h6>
+                        </div>
+                        <span class="">
+                          {{log?.customer?.name}} {{log?.customer?.lastname}}
+                        </span>
+                      </li>
+
+                      <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                          <h6 class="my-0">Email</h6>
+                        </div>
+                        <span class="">{{log?.customer?.email}}</span>
+                      </li>
+
+                      <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                          <h6 class="my-0">Contact</h6>
+                        </div>
+                        <span class="">{{user?.phoneNumber}} </span>
+                      </li>
+
+                    </ul>
+
+                  </div>
+
+                  <div class="card p-2">
+                    <div *ngIf="booking" class="thn--tool-text thn--tool-steps__step-component"
+                      style="font-size: 59px; line-height: 60px;">
+                      <p><em>Total due</em></p>
+                      <p><strong> R {{950 * booking.isDaysNo}}.00</strong> </p>
+                    </div>
+                  </div>
+
+                  <br />
 
                   <div class="card p-2">
                     <div class="input-group" *ngIf="room?.url">
                       <!-- <input type="text" class="form-control" placeholder="Promo code"> -->
-                      <a href="" class="btn btn-secondary w-100 btn-sm">
+                      <a href="" class="w-100  btn-lg btn-secondary w-100 ">
                         Cancel Booking
                       </a>
-                      
                     </div>
                   </div>
+
+                  <div class="card p-2">
+                    <div class="input-group" *ngIf="room?.url">
+
+                      <button class="w-100 btn btn-primary btn-lg" type="submit" (click)="complete()">Confirm booking
+                      </button>
+
+                    </div>
+                  </div>
+
+
                 </div>
 
 
                 <div class="col-md-7 col-lg-8">
 
                   <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary"></span>
+                    <span class="text-primary">Room details </span>
                   </h4>
-<!-- 
+                  <!-- 
                   {{room|json}} -->
 
                   <hr class="my-4">
@@ -94,119 +144,25 @@
                     <div class="row g-3">
                       <div class="container-fluid">
                         <div class="row">
-                          
-                            <!-- <div class="col-md-4">
-                              <picture>
-                                <img src="../../assets/img/room_image.jpg" class="img-fluid img-thumbnail" alt="...">
-                              
-                              </picture>
-                            </div> -->
-                            <div class="col">
-                              <h1 class="title">{{room?.title}}</h1>
-                              <h2 class="title-room"><span class="t-italic">{{room?.longDescription}}</span></h2>
+
+
+                          <div class="col">
+                            <h1 class="title">{{room?.title}}</h1>
+                            <h2 class="title-room"><span class="t-italic">{{room?.longDescription}}</span></h2>
+
+                            <span class="">
+                              <img class="img-thumbnail" src="../../../../../assets/img/room_image.jpg" />
+                            </span>
+
                           </div>
                         </div>
-                    </div>
+                      </div>
                     </div>
 
                     <hr class="my-4">
 
-                    <div>
-
-                      <ul class="list-group mb-3">
-
-                        <li class="list-group-item d-flex justify-content-between">
-                          <div>
-                            <h6 class="my-0">Name</h6>
-                          </div>
-                          <span class="">{{user.displayName}} </span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between">
-                          <div>
-                            <h6 class="my-0">Email</h6>
-                          </div>
-                          <span class="">{{user.email}} </span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between">
-                          <div>
-                            <h6 class="my-0">Number</h6>
-                          </div>
-                          <span class="">{{user.phoneNumber}} </span>
-                        </li>
-
-                        </ul>
-                     
-                    </div>
-
-                    
 
 
-                    
-
-                    <!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
-                      <span class="text-primary"> Booking details </span>
-                    </h4>
-
-
-                    <div class="my-3">
-                      <div class="form-check">
-                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
-                          required="">
-                        <label class="form-check-label" for="credit">Invoice</label>
-                      </div>
-                      <div class="form-check">
-                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required=""
-                          disabled>
-                        <label class="form-check-label" for="debit">Debit card</label>
-                      </div>
-                      <div class="form-check">
-                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required=""
-                          disabled>
-                        <label class="form-check-label" for="paypal">PayPal</label>
-                      </div>
-                    </div>
-
-                    <div class="row gy-3">
-                      <div class="col-md-6">
-                        <label for="cc-name" class="form-label">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                        <small class="">Full name as displayed on card</small>
-                        <div class="invalid-feedback">
-                          Name on card is required
-                        </div>
-                      </div>
-
-                      <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                        <div class="invalid-feedback">
-                          Credit card number is required
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <label for="cc-expiration" class="form-label">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                        <div class="invalid-feedback">
-                          Expiration date required
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <label for="cc-cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                        <div class="invalid-feedback">
-                          Security code required
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr class="my-4"> -->
-
-                    <button class="w-100 btn btn-primary btn-lg" type="submit" (click)="complete()">Continue to
-                      make a booking</button>
                   </div>
                 </div>
               </div>
@@ -221,13 +177,17 @@
 
       <ng-template #SignInBanner>
         <div class="alert alert-warning">
-          Only registered users are permitted to make an online booking. 
-          <br/>
-          <a  href="./login">
+          Only registered users are permitted to make an online booking.
+          <br />
+          <a href="./login">
             Register here
           </a>
         </div>
       </ng-template>
+
+      <div class="row mt-4 justify-content-center" *ngIf="loader else SHOWCONTENT">
+        <mat-spinner></mat-spinner>
+      </div>
 
     </div>
 

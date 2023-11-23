@@ -6,14 +6,17 @@
                 <!-- <li *ngIf="isLoggedIn &&" [routerLink]="activeMenuUrl" (click)="updateActiveState(activeMenuTab)">
                     <a>{{activeMenuTab}}</a>
                 </li> -->
-                <li>
-                    {{phoneNumber}}
-                    <img [src]="pictureUrl" class="user-avatar" width="32">
-                </li>
+
+                <!-- <img [src]="pictureUrl" class="user-avatar" width="32"> -->
+                <div *ngIf="loginService?.customer else NOTIN" class="rounded-circle"
+                    style="background-color: #9A8D7A; padding: 6px; font-size: 0.7rem; color: white; font-weight: bold; display: block;">
+                    {{loginService?.customer?.name.substring(0, 1) + loginService?.customer?.lastname.substring(0, 1)}}
+                </div>
+
                 <!-- <hr /> -->
                 <li class="position-relative">
                     <a href="javascript: void(0)">
-                        <small>{{displayName}}</small>
+                        <!-- <small>{{phoneNumber}}</small> -->
                     </a>
                     <ul class="langs">
                         <li *ngIf="isLoggedOut">
@@ -42,12 +45,13 @@
             <ul class="nav navbar-nav logo">
                 <li>
                     <a href="">
-                        <img  height="auto" widthx="120" class="lazy logo" data-src="../../../../assets/logo/logi-web-v2.svg"
-                            src="" alt="Pula Nala Lodge" title="Pula Nala Lodge">
+                        <img height="auto" widthx="120" class="lazy logo"
+                            data-src="../../../../assets/logo/logi-web-v2.svg" src="" alt="Pula Nala Lodge"
+                            title="Pula Nala Lodge">
                     </a>
                 </li>
             </ul>
-            
+
 
             <ul id="menu-toggle" class="nav navbar-nav">
 
@@ -72,9 +76,33 @@
             <div class="display-table">
                 <div class="display-table-cell">
 
+                    <div class="text-center">
+                        <!-- <img [src]="pictureUrl" class="user-avatar" width="32"> -->
+                        <!-- <div class="rounded-circle"
+                            style="background-color: #9A8D7A; padding: 10px; font-size: 0.8rem; color: white; font-weight: bolder; display: block;">
+                            LV
+                        </div> -->
+
+                        <div hidden>{{phoneNumber | filter: searchTerm: phoneNumber }}</div>
+
+
+                        <div *ngIf="loginService?.customer else NOTIN"
+                            class="thn--tool-text thn--tool-steps__step-component"
+                            style="font-size: 59px; line-height: 60px;">
+                            <p><em>HELLO</em></p>
+                            <p><strong>
+                                    {{loginService?.customer?.name}}
+                                    {{loginService?.customer?.lastname}}</strong> </p>
+                        </div>
+
+                        <ng-template #NOTIN>
+                            <p>Not logged in</p>
+                        </ng-template>
+
+                    </div>
                     <ul id="menu-toggle" class="list-unstyled site-nav__main_bottom">
                         <li class="block-legal">
-                            <a *ngIf="isLoggedOut" (click)="logout()" class="burger-icon">LogOut</a>
+                            <a *ngIf="isLoggedOut" href="./" (click)="logout()" class="burger-icon">LogOut</a>
                             <hr>
                             <a *ngIf="isLoggedIn" href="./login" class="burger-icon">LogIn</a>
                             <hr>

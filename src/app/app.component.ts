@@ -12,7 +12,7 @@ import {interval} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  name = 'Angular 6';
+  name = '';
 
   intervalPart: any;
   idleState = 'Not started.';
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   sec: any;
   dialogRef: MatDialogRef<any>;
   constructor(private modalPopupService: ModalPopupService, public user: UserService, private login: loginService) { }
+  
   openDialog() {
     this.dialogRef = this.modalPopupService.openPopup<IdleComponent>(IdleComponent, null);
     this.dialogRef.afterClosed().subscribe(result => {
@@ -35,8 +36,10 @@ export class AppComponent implements OnInit {
   showSignUpPopUp(){
     this.intervalPart = interval(500);
     this.intervalPart.subscribe((res) => {
-      const isModalPop = sessionStorage.getItem('home-sign-up-pop-up');
-      if (res === 9 && !isModalPop) { this.openDialog(); sessionStorage.setItem('home-sign-up-pop-up', String(true)); }
+      const isCountDown = res === 9;
+      const isSessionValid = sessionStorage.getItem('home-sign-up-pop-up');
+      // && !isModalPop
+      if (isCountDown && !isSessionValid) { this.openDialog(); sessionStorage.setItem('home-sign-up-pop-up', String(true)); }
     });
   }
   logout() {
@@ -44,7 +47,7 @@ export class AppComponent implements OnInit {
   }
 
   onActivate(event) {
-    console.log(event)
+    //console.log(event)
   }
 
 }

@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class loginService {
 
-  private number: LoginModal = { phoneNumber: 'Principles' }
-  private customer: CustomerModal
+  number: LoginModal = { phoneNumber: 'Principles' }
+  customer: CustomerModal
 
   constructor(private db: AngularFirestore) {
 
@@ -21,12 +21,12 @@ export class loginService {
   }
 
   retrievCustomer() {
+    console.log("this.customer", this.customer)
     return this.customer
   }
 
-  set customerObj(obj){
+  customerObj(obj){
     this.customer = obj
-    console.log("this.customer", this.customer)
   }
 
   removeCustomer() {

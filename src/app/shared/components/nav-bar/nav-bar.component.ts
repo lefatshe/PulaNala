@@ -18,7 +18,9 @@ export class NavBarComponent implements OnInit {
 
   @Output() signOutUser = new EventEmitter<string>();
 
-  constructor(private loginService: loginService) {
+   searchTerm: string;
+  constructor(public loginService: loginService, private customer: CustomersService,
+    private service: loginService) {
 
   }
 
@@ -27,7 +29,7 @@ export class NavBarComponent implements OnInit {
   activeMenuUrl = './login'
 
   ngOnInit(): void {
-    console.log(this.loginService.retrievCustomer())
+    
   }
 
   logout() {
@@ -50,6 +52,7 @@ export class NavBarComponent implements OnInit {
 
     console.log(this.activeMenuTab)
   }
+
 
 
 }

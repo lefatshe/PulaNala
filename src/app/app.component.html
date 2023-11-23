@@ -1,7 +1,11 @@
 <app-nav-bar [isLoggedOut]="user.isLoggedIn$ | async" [isLoggedIn]="user.isLoggedOutIn$ | async"
-    [pictureUrl]="user.pictureUrl$ | async" [displayName]="user.displayName$ | async" (signOutUser)="logout()">
+    [pictureUrl]="user.pictureUrl$ | async" [displayName]="user.displayName$ | async"
+    [phoneNumber]="user.phoneNumber$ | async" (signOutUser)="logout()">
 </app-nav-bar>
-<router-outlet (activate)="onActivate($event)"></router-outlet>
+
+<router-outlet (activate)="onActivate($event)">
+</router-outlet>
+
 <footer>
     <app-footer></app-footer>
 </footer>

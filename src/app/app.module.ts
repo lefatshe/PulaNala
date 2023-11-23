@@ -59,9 +59,15 @@ import {RoomBookingComponent} from './features/rooms/components/room-booking/roo
 import {ViewCustomerComponent} from './features/customer/components/view/view.component';
 import {IdleComponent} from './shared/services/idle.component';
 import {ModalPopupService} from './shared/services/modal-po-up.service';
+import { customerDetialDirective } from './shared/directives/custome-nymber.directive';
+import { FilterPipe } from './shared/pipes/user-info-by-number.pipe';
 
 @NgModule({
   declarations: [
+    customerDetialDirective,
+
+    FilterPipe,
+    
     AppComponent,
     HomeComponent,
     NavBarComponent,

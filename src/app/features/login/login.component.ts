@@ -82,6 +82,7 @@ export class LoginComponent implements OnInit, OnDestroy {
      this.service.getCustomerByNumber(number)
       .pipe(
         tap(res => {
+          console.log(res)
           this.service.setThisCustomer(res)
           this.router.navigateByUrl('')
           .then(() => {
