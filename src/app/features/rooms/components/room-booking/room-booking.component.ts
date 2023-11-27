@@ -12,6 +12,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 import { logging } from 'protractor';
 import { loginService } from 'src/app/features/login/login.service';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-room-booking',
@@ -23,7 +24,9 @@ export class RoomBookingComponent implements OnInit {
   booking: BookingModal | any;
   room: RoomModal;
   loader: boolean;
-  user: unknown
+  user: unknown;
+
+  bookingId: string;
 
   activeMenuTab = 'Login'
   activeMenuUrl = './login'
@@ -34,7 +37,9 @@ export class RoomBookingComponent implements OnInit {
     public router: Router,
     public bookingService: RoomsService,
     private afAuth: AngularFireAuth,
-    public log: loginService
+    public log: loginService,
+
+    private afs: AngularFirestore
   ) {
 
     this.route.queryParams
@@ -43,29 +48,23 @@ export class RoomBookingComponent implements OnInit {
       }
       );
 
-    this.afAuth.authState.subscribe(res => this.user = res)
+    this.afAuth.authState.subscribe(res => this.user = res);
 
   }
 
   ngOnInit() {
-    console.log(this.booking)
     this.room = this.route.snapshot.data['details'];
+    this.bookingId = this.afs.createId();
     // this.booking.isCustomerref = this.log?.customer?.id || null;
   }
 
   complete() {
-
-    console.log(this.booking)
-
+    this.loader = true;
     window.scrollTo({ top: 100, left: 100, behavior: 'smooth' });
-
-    this.loader = true
-    
-    this.bookingService.createBooking(this.booking, this.room.id, this.log?.customer)
+    this.bookingService.createBooking(this.booking, this.bookingId, this.bookingId)
       .pipe(
         tap(room => {
-          console.log(room)
-          this.loader = false
+          this.loader = false;
           this.router.navigateByUrl('/');
         }),
         catchError(err => {

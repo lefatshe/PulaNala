@@ -69,7 +69,8 @@ export class BookingTileComponent {
                     isTime: form.isTime,
                     isToday: form.isToday,
                     isRoomRef: this.room.id,
-                    isCustomerref: this.log?.customer?.id
+                    isCustomerref: this.log?.customer?.id,
+                    status: 'open'
                 }
             }
         );

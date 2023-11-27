@@ -15,13 +15,13 @@ export class BookingService {
     constructor(private db: AngularFirestore) {
     }
 
-    // getAllRooms(category: string): Observable<RoomModal[]> {
-    //     return this.db.collection('rooms',
-    //         ref => ref.orderBy('seqNo')
-    //     )
-    //         .get()
-    //         .pipe(map(results => convertSnaps<RoomModal>(results)));
-    // }
+    getUserBookings(userId: any): Observable<RoomModal[]> {
+        return this.db.collection('bookings',
+            ref => ref.where('isCustomerref', '==', userId)
+        )
+            .get()
+            .pipe(map(results => convertSnaps<RoomModal>(results)));
+    }
 
     // getRoomByUrl(courseUrl: string): Observable<RoomModal | null> {
 
@@ -79,8 +79,8 @@ export class BookingService {
     //     return from(this.db.doc(`rooms/${roomId}`).delete());
     // }
 
-    // updateRoom(roomId: string, changes: Partial<RoomModal>): Observable<any> {
-    //     return from(this.db.doc(`rooms/${roomId}`).update(changes));
-    // }
+    updateBookingStatus(bookingId: string, changes: Partial<RoomModal>): Observable<any> {
+        return from(this.db.doc(`bookings/${bookingId}`).update(changes));
+    }
 
 }

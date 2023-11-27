@@ -76,7 +76,7 @@ export class RoomsService {
             );
     }
 
-    createBooking(newBooking: Partial<BookingModal>, roomId?: string, user?: any) {
+    createBooking(newBooking: Partial<BookingModal>, bookingUid?: string, user?: any) {
         return this.db.collection('bookings',
             ref => ref.orderBy('seqNo', 'desc').limit(1))
             .get()
@@ -94,7 +94,7 @@ export class RoomsService {
                     let save$: Observable<any>;
 
                     if (user) {
-                        save$ = from(this.db.doc(`bookings/${user.uid}`).set(booking));
+                        save$ = from(this.db.doc(`bookings/${bookingUid}`).set(booking));
                     } else {
                         // @ts-ignore
                         save$ = (this.db.collection('bookings').add(booking));

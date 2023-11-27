@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       const uiConfig: any = {
         signInOptions: [
-          // firebase.default.auth.EmailAuthProvider.PROVIDER_ID,
+          firebase.default.auth.EmailAuthProvider.PROVIDER_ID,
           // firebase.default.auth.GoogleAuthProvider.PROVIDER_ID,
           // firebase.default.auth.FacebookAuthProvider.PROVIDER_ID,
           // firebase.default.auth.TwitterAuthProvider.PROVIDER_ID,
@@ -41,16 +41,13 @@ export class LoginComponent implements OnInit, OnDestroy {
           firebase.default.auth.PhoneAuthProvider.PROVIDER_ID,
           // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
         ],
-        privacyPolicyUrl: function () {
-          window.location.assign('pulanalalodge.co.za');
-        },
-        locale: {
-          defaultLocale: 'de'
-        },
-        defaultCountry: 'RSA',
-        defaultNationalNumber: '1234567890',
-        loginHint: '+11234567890',
-        whitelistedCountries: ['US', '+44', '+1'],
+        // locale: {
+        //   defaultLocale: 'de'
+        // },
+        // defaultCountry: 'RSA',
+        // defaultNationalNumber: '1234567890',
+        // loginHint: '+11234567890',
+        // whitelistedCountries: ['US', '+44', '+1'],
         callbacks: {
           signInSuccessWithAuthResult: (result) => {
             this.onLoginSuccessful(result)

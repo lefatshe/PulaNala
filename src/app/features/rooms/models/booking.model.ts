@@ -7,6 +7,8 @@ export interface BookingModal {
     isToday: string
     isRoomRef?: string
     isCustomerref: string
+
+    status: 'open';
 }
 
 // export interface BookingPayloadModal {

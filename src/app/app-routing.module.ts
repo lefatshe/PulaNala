@@ -13,6 +13,7 @@ import {AddRoomComponent} from './features/rooms/components/add/add.component';
 import {ViewComponent} from './features/rooms/components/view/view.component';
 import {RoomsComponent} from './features/rooms/rooms.component';
 import {RoomBookingComponent} from './features/rooms/components/room-booking/room-booking.component';
+import {ProfileComponent} from './features/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: AddCustomerComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'rooms/:roomUrl',

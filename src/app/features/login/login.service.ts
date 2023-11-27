@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 export class loginService {
 
   number: LoginModal = { phoneNumber: 'Principles' }
-  customer: CustomerModal
+  customer: CustomerModal;
+  customerUid: string;
 
   constructor(private db: AngularFirestore) {
 
@@ -26,7 +27,8 @@ export class loginService {
   }
 
   customerObj(obj){
-    this.customer = obj
+    this.customerUid = obj.id;
+    this.customer = obj;
   }
 
   removeCustomer() {

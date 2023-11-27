@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
       const isCountDown = res === 9;
       const isSessionValid = sessionStorage.getItem('home-sign-up-pop-up');
       // && !isModalPop
-      if (isCountDown && !isSessionValid) { this.openDialog(); sessionStorage.setItem('home-sign-up-pop-up', String(true)); }
+      if (isCountDown && isSessionValid) { this.openDialog(); sessionStorage.setItem('home-sign-up-pop-up', String(true)); }
     });
   }
   logout() {

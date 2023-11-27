@@ -17,12 +17,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="preload" href="https://use.typekit.net/bqu2oww.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bqu2oww.css">
+  <link rel="stylesheet" href="assets/aos.css" as="style">
+  <link rel="stylesheet" href="assets/bootstrap.min.css" as="style">
 
-  <link rel="stylesheet preload" href="assets/aos.css" as="style">
-  <link rel="stylesheet preload" href="assets/bootstrap.min.css" as="style">
-
-  <link rel="stylesheet preload" href="assets/css/custom.min.css" as="style">
+  <link rel="stylesheet" href="assets/css/custom.min.css" as="style">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -237,54 +236,54 @@
     }, 500);
   </script>
 
-  <script>
-    var idVideo = 'yQCBPQeqb44';
-    function loadYT() {
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      loadYT();
-      // loadYT();
-    });
+<!--  <script>-->
+<!--    var idVideo = 'yQCBPQeqb44';-->
+<!--    function loadYT() {-->
+<!--      var tag = document.createElement('script');-->
+<!--      tag.src = "https://www.youtube.com/iframe_api";-->
+<!--      var firstScriptTag = document.getElementsByTagName('script')[0];-->
+<!--      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);-->
+<!--    }-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--      loadYT();-->
+<!--      // loadYT();-->
+<!--    });-->
 
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: idVideo,
-        playerVars: {
-          playlist: idVideo,
-          loop: 1,
-          autoplay: 1,
-          mute: 1,
-          showinfo: 0,
-          controls: 0,
-        },
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-    function onPlayerReady(event) {
-      player.mute();
-      player.playVideo();
-    }
-    var done = false;
-    function onPlayerStateChange(event) {
-      if (event.data == YT.PlayerState.CUED || event.data == YT.PlayerState.ENDED) {
-        playVideo();
-      }
-    }
-    function stopVideo() {
-      player.stopVideo();
-    }
-    function playVideo() {
-      player.playVideo();
-    }
-  </script>
+<!--    var player;-->
+<!--    function onYouTubeIframeAPIReady() {-->
+<!--      player = new YT.Player('player', {-->
+<!--        videoId: idVideo,-->
+<!--        playerVars: {-->
+<!--          playlist: idVideo,-->
+<!--          loop: 1,-->
+<!--          autoplay: 1,-->
+<!--          mute: 1,-->
+<!--          showinfo: 0,-->
+<!--          controls: 0,-->
+<!--        },-->
+<!--        events: {-->
+<!--          'onReady': onPlayerReady,-->
+<!--          'onStateChange': onPlayerStateChange-->
+<!--        }-->
+<!--      });-->
+<!--    }-->
+<!--    function onPlayerReady(event) {-->
+<!--      player.mute();-->
+<!--      player.playVideo();-->
+<!--    }-->
+<!--    var done = false;-->
+<!--    function onPlayerStateChange(event) {-->
+<!--      if (event.data == YT.PlayerState.CUED || event.data == YT.PlayerState.ENDED) {-->
+<!--        playVideo();-->
+<!--      }-->
+<!--    }-->
+<!--    function stopVideo() {-->
+<!--      player.stopVideo();-->
+<!--    }-->
+<!--    function playVideo() {-->
+<!--      player.playVideo();-->
+<!--    }-->
+<!--  </script>-->
 
 </head>
 
@@ -335,9 +334,11 @@
 
   <script src="assets/js/jquery-3.5.1.min.js"></script>
   <script src="assets/js/aos.min.js"></script>
+  <script src="assets/js/featherlight.gallery.min.js"></script>
+  <script src="assets/js/featherlight.min.js"></script>
 
-  <script src="assets/js/featherlight.min.js" async defer></script>
-  <script src="assets/js/featherlight.gallery.min.js" async defer></script>
+
+
   <script src="assets/js/bootstrap.min.js" async defer></script>
   <script src="assets/js/lazyload.min.js" defer></script>
   <script src="assets/js/aos.min.js" async defer></script>
@@ -345,6 +346,7 @@
   <!-- <script src="assets/js/flatpickr.min.js" async defer></script> -->
   <script src="assets/js/custom.js" async defer></script>
   <script src="assets/js/init-map.js" async defer></script>
+
 
   <script>
     let captchaReady = false;
